@@ -455,28 +455,25 @@
   </footer>
 
   <script type="module">
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js';
+    import { getDatabase, ref, onValue, set, get, child } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-database.js';
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const WHATSAPP_NUMBER = '9647745653751';
+    const ADMIN_PIN = '1234';
+    const STORAGE_KEYS = {
+      cart: 'elia_store_cart',
+      products: 'elia_store_products',
+      admin: 'elia_store_admin_auth'
+    };
 const firebaseConfig = {
   apiKey: "AIzaSyBb4uoQrtmleT21kjNmAAqpwUi63k-RN8I",
   authDomain: "elya-bccf1.firebaseapp.com",
   projectId: "elya-bccf1",
   storageBucket: "elya-bccf1.firebasestorage.app",
   messagingSenderId: "1042595741538",
-  appId: "1:1042595741538:web:3083c8852ce91ef445b63b",
-  measurementId: "G-5QNJLNSC8B"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-};
+  appId: "1:1042595741538:web:ea56f23a93e6491645b63b",
+  measurementId: "G-MDSTBRC6VY"
+    };
 
     const seedProducts = [
       { id: 1, name: 'عطر إيليا رقم 1', image: 'https://i.imgur.com/GabFICL.jpg', price: 12000, oldPrice: 15000, badge: 'الأكثر رواجًا', badgeClass: '', isTrending: true, description: 'يتميز عطر إيليا رقم 1 بتركيبة متوازنة تجمع بين النفحات الخشبية والفواكهية، تبدأ بانتعاش البرغموت واليوسفي، تليها لمسات دافئة من الخزامى والزعفران، وتستقر على قاعدة عميقة من خشب الأرز والعنبر، ما يمنحه طابعًا جذابًا ولافتًا.' },
