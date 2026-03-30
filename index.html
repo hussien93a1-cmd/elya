@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>متجر إيليا للعطور</title>
+  <style>
+    :root{
+      --bg:#f7f7f8;
+      --panel:#ffffff;
+      --text:#121212;
+      --muted:#6b7280;
+      --line:#eceef2;
+      --primary:#111827;
+      --accent:#d4af37;
+      --danger:#d92d20;
+      --shadow:0 10px 30px rgba(17,24,39,.08);
+      --shadow-soft:0 6px 18px rgba(17,24,39,.06);
+      --container:1200px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:"Segoe UI",Tahoma,Arial,sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(212,175,55,.13), transparent 22%),
+        linear-gradient(180deg, #ffffff 0%, #f8f9fb 100%);
+      color:var(--text);
+    }
+
+    img{max-width:100%;display:block}
+    button,input,textarea,select{font:inherit}
+    a{text-decoration:none;color:inherit}
+
+    .container{width:min(var(--container), calc(100% - 24px));margin-inline:auto}
+    .section{padding:22px 0}
+
+    .topbar{
+      position:sticky;top:0;z-index:40;
+      backdrop-filter:blur(14px);
+      background:rgba(255,255,255,.86);
+      border-bottom:1px solid rgba(17,24,39,.06);
+    }
+    .topbar-inner{
+      display:flex;align-items:center;justify-content:space-between;gap:14px;
+      padding:14px 0;
+    }
+    .brand{display:flex;align-items:center;gap:12px;min-width:0}
+    .brand-mark{
+      width:48px;height:48px;border-radius:18px;
+      background:linear-gradient(135deg, #111827, #2b3447);
+      color:#fff;display:grid;place-items:center;font-weight:800;
+      box-shadow:var(--shadow-soft);
+      letter-spacing:.5px;
+      flex:0 0 auto;
+    }
+    .brand h1{margin:0;font-size:1.1rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .brand p{margin:3px 0 0;color:var(--muted);font-size:.86rem}
+
+    .toolbar{
+      display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end;
+    }
+    .search{
+      position:relative;min-width:min(100%, 290px);flex:1 1 290px;
+    }
+    .search input{
+      width:100%;height:48px;border:none;border-radius:999px;background:#f4f6f8;
+      padding:0 18px 0 48px;color:var(--text);outline:none;
+      box-shadow:inset 0 0 0 1px transparent;transition:.2s;
+    }
+    .search input:focus{box-shadow:inset 0 0 0 1px rgba(212,175,55,.55);background:#fff}
+    .search .icon{
+      position:absolute;left:16px;top:50%;transform:translateY(-50%);
+      color:var(--muted);font-size:1rem;
+    }
+    .pill-btn{
+      border:none;background:#111827;color:#fff;height:46px;padding:0 18px;
+      border-radius:999px;display:inline-flex;align-items:center;gap:8px;cursor:pointer;
+      box-shadow:var(--shadow-soft);transition:transform .18s ease, opacity .18s ease;
+    }
+    .pill-btn:hover{transform:translateY(-1px)}
+    .pill-btn.secondary{background:#fff;color:#111827;border:1px solid var(--line)}
+    .pill-btn.accent{background:linear-gradient(135deg, #d4af37, #c69b1e);color:#1b1b1b;font-weight:700}
+
+    .hero{padding:22px 0 12px}
+    .hero-card{
+      background:
+        radial-gradient(circle at top left, rgba(212,175,55,.16), transparent 28%),
+        linear-gradient(135deg,#ffffff 0%, #fbfbfc 100%);
+      border:1px solid rgba(17,24,39,.06);
+      border-radius:32px;padding:22px;box-shadow:var(--shadow);
+      display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:center;
+      overflow:hidden;
+    }
+    .hero-copy h2{margin:0 0 12px;font-size:clamp(1.5rem, 2vw + 1rem, 2.6rem);line-height:1.2}
+    .hero-copy p{margin:0 0 18px;color:var(--muted);font-size:1rem;line-height:1.9;max-width:62ch}
+    .hero-actions{display:flex;gap:10px;flex-wrap:wrap}
+    .hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+    .mini-badge{
+      padding:8px 14px;border-radius:999px;background:#fff;border:1px solid var(--line);
+      color:#374151;font-size:.88rem;box-shadow:var(--shadow-soft)
+    }
+    .hero-showcase{min-height:320px;position:relative;display:grid;place-items:center}
+    .hero-orb{
+      position:absolute;inset:auto auto 14px 10px;width:120px;height:120px;border-radius:50%;
+      background:radial-gradient(circle, rgba(212,175,55,.3), rgba(212,175,55,0));
+      filter:blur(4px);
+    }
+    .showcase-card{
+      width:min(100%, 360px);background:#fff;border:1px solid var(--line);border-radius:30px;
+      padding:16px;box-shadow:var(--shadow);transform:rotate(-6deg);
+    }
+    .showcase-card:nth-child(2){position:absolute;transform:rotate(8deg) translate(42px,34px);opacity:.88;width:200px}
+    .showcase-image{aspect-ratio:1/1.15;border-radius:24px;overflow:hidden;background:#f4f5f7}
+    .showcase-image img{width:100%;height:100%;object-fit:cover}
+
+    .section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+    .section-head h3{margin:0;font-size:1.2rem}
+    .section-head p{margin:4px 0 0;color:var(--muted);font-size:.92rem}
+
+    .trending-wrap{
+      background:rgba(255,255,255,.8);border:1px solid var(--line);border-radius:28px;padding:16px;
+      box-shadow:var(--shadow-soft);
+    }
+    .trending-strip{
+      display:grid;grid-auto-flow:column;grid-auto-columns:minmax(220px, 1fr);
+      gap:14px;overflow:auto;padding-bottom:4px;scrollbar-width:thin;
+    }
+    .trending-card{
+      position:relative;background:linear-gradient(180deg,#ffffff 0%, #fbfbfd 100%);
+      border:1px solid var(--line);border-radius:24px;padding:12px;display:grid;gap:12px;
+      min-height:100%;
+    }
+    .trending-card .thumb{aspect-ratio:1/1;border-radius:18px;overflow:hidden;background:#f3f4f6}
+    .trending-card .thumb img{width:100%;height:100%;object-fit:cover}
+    .trending-card h4{margin:0;font-size:1rem}
+    .trending-card p{margin:0;color:var(--muted);font-size:.85rem;line-height:1.7}
+
+    .filters{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+    .chips{display:flex;gap:10px;flex-wrap:wrap}
+    .chip{
+      border:none;cursor:pointer;padding:11px 16px;border-radius:999px;background:#fff;color:#374151;
+      border:1px solid var(--line);transition:.2s;box-shadow:var(--shadow-soft)
+    }
+    .chip.active,.chip:hover{background:#111827;color:#fff;border-color:#111827}
+
+    .products-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+    .product-card{
+      position:relative;background:var(--panel);border:1px solid var(--line);border-radius:26px;
+      overflow:hidden;box-shadow:var(--shadow-soft);display:flex;flex-direction:column;
+      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .product-card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 14px 30px rgba(17,24,39,.1);
+      border-color:rgba(212,175,55,.5);
+    }
+    .product-media{position:relative;aspect-ratio:1/1.08;background:#f3f4f6;overflow:hidden}
+    .product-media img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
+    .product-card:hover .product-media img{transform:scale(1.04)}
+
+    .badges{position:absolute;top:12px;right:12px;left:12px;display:flex;justify-content:space-between;gap:8px;pointer-events:none}
+    .badge{
+      display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;
+      font-size:.75rem;font-weight:700;backdrop-filter:blur(8px);box-shadow:var(--shadow-soft)
+    }
+    .badge.dark{background:rgba(17,24,39,.9);color:#fff}
+    .badge.light{background:rgba(255,255,255,.92);color:#111827}
+    .badge.sale{background:rgba(217,45,32,.92);color:#fff}
+
+    .product-body{padding:14px;display:flex;flex-direction:column;gap:10px;flex:1}
+    .product-title{margin:0;font-size:1rem;line-height:1.5;min-height:48px}
+    .product-desc{
+      margin:0;color:var(--muted);font-size:.88rem;line-height:1.8;
+      display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+      min-height:50px;
+    }
+    .price-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    .price{font-weight:800;font-size:1rem;color:#111827}
+    .old-price{color:#9ca3af;text-decoration:line-through;font-size:.92rem}
+    .saving{color:var(--danger);font-size:.82rem;font-weight:700}
+
+    .product-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:auto}
+    .btn{
+      height:46px;border:none;border-radius:16px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;
+      gap:8px;font-weight:700;transition:.18s ease;white-space:nowrap
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn.primary{background:#111827;color:#fff}
+    .btn.soft{background:#f5f7fa;color:#111827}
+    .btn.whatsapp{background:#25D366;color:#fff}
+    .btn.full{width:100%}
+
+    .floating-cart{
+      position:fixed;left:16px;bottom:16px;z-index:60;
+      min-width:62px;height:62px;border:none;border-radius:999px;cursor:pointer;
+      background:linear-gradient(135deg,#111827,#2a3344);color:#fff;box-shadow:0 20px 30px rgba(17,24,39,.22);
+      display:flex;align-items:center;justify-content:center;gap:8px;padding:0 18px;
+    }
+    .floating-cart .count{
+      min-width:24px;height:24px;border-radius:999px;background:#d4af37;color:#111827;
+      display:grid;place-items:center;font-size:.8rem;font-weight:800;padding-inline:6px;
+    }
+
+    .drawer-backdrop{
+      position:fixed;inset:0;background:rgba(17,24,39,.45);backdrop-filter:blur(4px);
+      z-index:70;opacity:0;pointer-events:none;transition:.24s ease;
+    }
+    .drawer-backdrop.show{opacity:1;pointer-events:auto}
+    .cart-drawer{
+      position:fixed;top:0;left:0;height:100dvh;width:min(100%, 420px);background:#fff;z-index:80;
+      transform:translateX(-100%);transition:.28s ease;display:flex;flex-direction:column;
+      box-shadow:20px 0 50px rgba(17,24,39,.18);
+    }
+    .cart-drawer.show{transform:translateX(0)}
+    .cart-head{padding:18px 18px 14px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .cart-head h3{margin:0;font-size:1.1rem}
+    .icon-btn{width:42px;height:42px;border:none;border-radius:14px;background:#f3f4f6;color:#111827;cursor:pointer}
+    .cart-body{padding:14px 14px 8px;overflow:auto;flex:1;display:flex;flex-direction:column;gap:12px}
+    .cart-empty{border:1px dashed #d8dde6;border-radius:24px;padding:28px 18px;text-align:center;color:var(--muted);background:#fafbfc}
+    .cart-item{
+      border:1px solid var(--line);border-radius:22px;padding:10px;background:#fff;display:grid;grid-template-columns:76px 1fr;gap:12px;
+      box-shadow:var(--shadow-soft)
+    }
+    .cart-item .thumb{width:76px;height:76px;border-radius:16px;overflow:hidden;background:#f3f4f6}
+    .cart-item .thumb img{width:100%;height:100%;object-fit:cover}
+    .cart-item h4{margin:0 0 6px;font-size:.95rem;line-height:1.5}
+    .cart-item .meta{color:var(--muted);font-size:.83rem;margin-bottom:8px}
+    .qty-row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+    .qty-controls{display:flex;align-items:center;gap:8px}
+    .qty-btn{width:34px;height:34px;border:none;border-radius:12px;background:#f3f4f6;cursor:pointer;font-size:1rem}
+    .qty-value{min-width:28px;text-align:center;font-weight:800}
+    .remove-btn{border:none;background:transparent;color:var(--danger);cursor:pointer;font-weight:700}
+
+    .cart-foot{border-top:1px solid var(--line);padding:14px;display:grid;gap:10px;background:linear-gradient(180deg,#ffffff 0%, #fafafb 100%)}
+    .summary{border:1px solid var(--line);border-radius:20px;padding:14px;background:#fff;display:grid;gap:10px}
+    .summary-row{display:flex;align-items:center;justify-content:space-between;gap:8px;color:#374151}
+    .summary-row.total{font-size:1.05rem;font-weight:800;color:#111827;padding-top:6px;border-top:1px dashed #e5e7eb}
+    .cart-actions{display:grid;grid-template-columns:1fr;gap:10px}
+    .note{font-size:.82rem;color:var(--muted);line-height:1.7}
+
+    .modal{
+      position:fixed;inset:0;display:grid;place-items:center;padding:16px;z-index:90;
+      background:rgba(17,24,39,.42);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:.22s ease;
+    }
+    .modal.show{opacity:1;pointer-events:auto}
+    .modal-card{
+      width:min(100%, 720px);max-height:min(92dvh,900px);overflow:auto;background:#fff;border-radius:28px;
+      box-shadow:0 26px 60px rgba(17,24,39,.2);border:1px solid rgba(17,24,39,.06)
+    }
+    .modal-head{
+      position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);
+      padding:16px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:2
+    }
+    .modal-body{padding:16px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .product-preview{display:grid;gap:12px}
+    .product-preview .image{aspect-ratio:1/1.1;border-radius:24px;overflow:hidden;background:#f3f4f6}
+    .product-preview .image img{width:100%;height:100%;object-fit:cover}
+    .detail-panel{display:grid;gap:12px;align-content:start}
+    .detail-panel h3{margin:0;font-size:1.4rem;line-height:1.4}
+    .detail-panel p{margin:0;color:var(--muted);line-height:2}
+    .detail-price{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .detail-price .price{font-size:1.2rem}
+
+    .footer{padding:28px 0 90px;color:#6b7280}
+    .footer-card{
+      border:1px solid var(--line);border-radius:28px;background:#fff;padding:18px;box-shadow:var(--shadow-soft);
+      display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap
+    }
+
+    @media (max-width: 1024px){
+      .hero-card{grid-template-columns:1fr;gap:14px}
+      .products-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+    }
+
+    @media (max-width: 768px){
+      .container{width:min(100% - 16px, 100%)}
+      .topbar-inner{align-items:stretch;flex-direction:column}
+      .toolbar{justify-content:stretch}
+      .search{flex:1 1 auto;min-width:100%}
+      .hero{padding-top:14px}
+      .hero-card{padding:16px;border-radius:26px}
+      .hero-copy p{font-size:.95rem}
+      .trending-strip{grid-auto-columns:78%}
+      .products-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+      .product-card{border-radius:22px}
+      .product-body{padding:12px;gap:8px}
+      .product-title{font-size:.95rem;min-height:42px}
+      .product-desc{font-size:.82rem;min-height:44px;-webkit-line-clamp:2}
+      .btn{height:42px;border-radius:14px;font-size:.9rem}
+      .modal-body{grid-template-columns:1fr}
+      .floating-cart{left:12px;bottom:12px;height:58px;min-width:58px}
+      .footer{padding-bottom:80px}
+    }
+
+    @media (max-width: 420px){
+      .brand h1{font-size:1rem}
+      .brand p{font-size:.8rem}
+      .products-grid{gap:10px}
+      .product-actions{grid-template-columns:1fr}
+      .badge{font-size:.68rem;padding:7px 10px}
+      .price{font-size:.95rem}
+      .old-price{font-size:.82rem}
+      .cart-item{grid-template-columns:68px 1fr}
+      .cart-item .thumb{width:68px;height:68px}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="brand-mark">EI</div>
+        <div>
+          <h1>مركز إيليا للعطور</h1>
+          <p>متجر عطور فاخر بتصميم عربي عصري ومتجاوب بالكامل</p>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <div class="search">
+          <span class="icon">⌕</span>
+          <input id="searchInput" type="search" placeholder="ابحث عن عطرك المفضل..." />
+        </div>
+        <button class="pill-btn secondary" id="scrollTrendingBtn">الأكثر رواجًا</button>
+        <button class="pill-btn accent" id="openCartTopBtn">السلة <span id="headerCartCount">0</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <div class="hero-copy">
+            <div class="hero-badges">
+              <span class="mini-badge">عطور مختارة بعناية</span>
+              <span class="mini-badge">تصميم سريع ومناسب للجوال</span>
+              <span class="mini-badge">إرسال الطلب عبر واتساب</span>
+            </div>
+            <h2>متجر إيليا للعطور — تجربة عرض فاخرة، سريعة، وسهلة من أول لمسة</h2>
+            <p>
+              استعرض مجموعة عطور إيليا بتصميم أبيض أنيق يركز على الصور والتفاصيل، مع بطاقات احترافية، سلة ذكية،
+              وعروض جذابة، ثم أرسل طلبك مباشرة إلى واتساب برسالة مرتبة وواضحة.
+            </p>
+            <div class="hero-actions">
+              <button class="pill-btn" id="browseProductsBtn">تصفح المنتجات</button>
+              <button class="pill-btn secondary" id="openCartHeroBtn">فتح السلة</button>
+            </div>
+          </div>
+
+          <div class="hero-showcase">
+            <div class="showcase-card">
+              <div class="showcase-image">
+                <img id="heroMainImage" src="https://i.imgur.com/REVuOIm.jpg" alt="عطر إيليا" loading="lazy" data-fallback-label="عطر إيليا" />
+              </div>
+            </div>
+            <div class="showcase-card">
+              <div class="showcase-image">
+                <img src="https://i.imgur.com/l6H46ES.jpg" alt="عطر إيليا" loading="lazy" data-fallback-label="عطر إيليا" />
+              </div>
+            </div>
+            <div class="hero-orb"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="trendingSection">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h3>الأكثر رواجًا</h3>
+            <p>شريط أفقي أنيق وسلس لعرض أبرز العطور المميزة على الهاتف والتابلت والكمبيوتر.</p>
+          </div>
+        </div>
+        <div class="trending-wrap">
+          <div class="trending-strip" id="trendingStrip"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="productsSection">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h3>منتجاتنا</h3>
+            <p>بطاقات عصرية لعرض الصور والأسعار والعروض بشكل واضح واحترافي.</p>
+          </div>
+          <div id="resultsText" style="color:var(--muted);font-size:.9rem"></div>
+        </div>
+
+        <div class="filters">
+          <div class="chips" id="chipsContainer"></div>
+        </div>
+
+        <div class="products-grid" id="productsGrid"></div>
+      </div>
+    </section>
+
+    <section class="footer">
+      <div class="container">
+        <div class="footer-card">
+          <div>
+            <strong style="display:block;color:#111827;margin-bottom:6px">مركز إيليا للعطور</strong>
+            <span>متجر إلكتروني عربي فاخر، متجاوب بالكامل، مع إرسال الطلبات إلى واتساب مباشرة.</span>
+          </div>
+          <button class="pill-btn whatsapp" id="footerWhatsappBtn">اطلب عبر واتساب</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button class="floating-cart" id="floatingCartBtn" aria-label="فتح السلة">
+    <span>🛒</span>
+    <span class="count" id="floatingCartCount">0</span>
+  </button>
+
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <div class="cart-head">
+      <div>
+        <h3>عربة المشتريات</h3>
+        <div style="color:var(--muted);font-size:.88rem">راجع منتجاتك ثم أرسل الطلب إلى واتساب</div>
+      </div>
+      <button class="icon-btn" id="closeCartBtn" aria-label="إغلاق">✕</button>
+    </div>
+
+    <div class="cart-body" id="cartBody"></div>
+
+    <div class="cart-foot">
+      <div class="summary">
+        <div class="summary-row"><span>عدد القطع</span><strong id="summaryItems">0</strong></div>
+        <div class="summary-row"><span>إجمالي قبل الخصم</span><strong id="summarySubtotal">0 د.ع</strong></div>
+        <div class="summary-row"><span>إجمالي الخصومات</span><strong id="summaryDiscount">0 د.ع</strong></div>
+        <div class="summary-row total"><span>الإجمالي النهائي</span><strong id="summaryTotal">0 د.ع</strong></div>
+      </div>
+      <div class="cart-actions">
+        <button class="btn whatsapp full" id="sendWhatsappBtn">إرسال الطلب إلى واتساب</button>
+        <button class="btn soft full" id="clearCartBtn">تفريغ السلة</button>
+        <div class="note">رقم الواتساب المعتمد: 9647745653751</div>
+      </div>
+    </div>
+  </aside>
+
+  <div class="modal" id="productModal">
+    <div class="modal-card">
+      <div class="modal-head">
+        <strong id="modalTitleText">تفاصيل المنتج</strong>
+        <button class="icon-btn" id="closeModalBtn" aria-label="إغلاق">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="product-preview">
+          <div class="image">
+            <img id="modalImage" src="" alt="" loading="lazy" data-fallback-label="صورة المنتج" />
+          </div>
+        </div>
+        <div class="detail-panel">
+          <div id="modalBadges" style="display:flex;gap:8px;flex-wrap:wrap"></div>
+          <h3 id="modalName"></h3>
+          <div class="detail-price">
+            <span class="price" id="modalPrice"></span>
+            <span class="old-price" id="modalOldPrice"></span>
+          </div>
+          <p id="modalDesc"></p>
+          <button class="btn primary full" id="modalAddBtn">إضافة إلى السلة</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      'use strict';
+
+      const WHATSAPP_NUMBER = '9647745653751';
+      const STORAGE_KEY = 'elya_perfume_store_cart_v2';
+      const currency = 'د.ع';
+
+      const products = [
+        {
+          id: 1,
+          name: 'عطر إيليا رقم 1',
+          image: 'https://i.imgur.com/GabFICL.jpg',
+          description: 'يتميز عطر إيليا رقم 1 بتركيبة متوازنة تجمع بين النفحات الخشبية والفواكهية، تبدأ بانتعاش البرغموت واليوسفي، تليها لمسات دافئة من الخزامى والزعفران، وتستقر على قاعدة عميقة من خشب الأرز والعنبر، ما يمنحه طابعًا جذابًا ولافتًا.',
+          price: 12000,
+          oldPrice: null,
+          tag: 'الأكثر رواجًا',
+          isTrending: true,
+          isNew: true,
+          badgeType: 'dark'
+        },
+        {
+          id: 2,
+          name: 'عطر إيليا رقم 2',
+          image: 'https://i.imgur.com/REVuOIm.jpg',
+          description: 'عطر نسائي مميز بتركيبة جذابة، يبدأ بنفحات منعشة من الكيوي والراوند، يتوسطه قلب من الحمضيات والياسمين، ويستقر على قاعدة دافئة من الليمون والمسك وخشب الصندل. يتميز بثبات قوي وطابع أنثوي مغري وساحر.',
+          price: 12000,
+          oldPrice: null,
+          tag: 'عرض خاص',
+          isTrending: true,
+          isNew: false,
+          badgeType: 'sale'
+        },
+        {
+          id: 3,
+          name: 'عطر إيليا رقم 3',
+          image: 'https://i.imgur.com/mTO9Exn.jpg',
+          description: 'عطر زهري مشرق يمزج بين التوت الداكن والياسمين، يمنحك انتعاشًا ناعمًا ولمسة خفيفة ومبهجة مثالية لأمسيات الإفطار ✨🌙',
+          price: 12000,
+          oldPrice: null,
+          tag: 'جديد',
+          isTrending: false,
+          isNew: true,
+          badgeType: 'light'
+        },
+        {
+          id: 4,
+          name: 'عطر إيليا رقم 4',
+          image: 'https://i.imgur.com/l6H46ES.jpg',
+          description: 'عطر إيليا يمنحك عبقًا فاخرًا بتركيبة خشبية مسكية عنبرية، يبدأ بنفحات منعشة من البرغموت والبرتقال، يتوسطه مزيج ناعم من الفانيليا والكمثرى، ويستقر على قاعدة دافئة من المسك والعنبر، ليمنحك لمسة أنيقة وجذابة تدوم طويلًا 🌸🤍',
+          price: 12000,
+          oldPrice: null,
+          tag: 'الأكثر رواجًا',
+          isTrending: true,
+          isNew: false,
+          badgeType: 'dark'
+        },
+        {
+          id: 5,
+          name: 'عطر إيليا رقم 5',
+          image: 'https://i.imgur.com/CKq7VNe.jpg',
+          description: 'تركيبته تجمع بين عبير الكراميل والقرفة الحلوة، لتمنح عطر الجكليت عمقًا دافئًا ولمسة شهية وجذابة 🤍🌸',
+          price: 12000,
+          oldPrice: null,
+          tag: 'عرض خاص',
+          isTrending: true,
+          isNew: false,
+          badgeType: 'sale'
+        },
+        {
+          id: 6,
+          name: 'عطر إيليا رقم 6',
+          image: 'https://i.imgur.com/FKVXgKL.jpg',
+          description: 'عطر تم أُطلاقه في عام 2022، يبدأ بنفحات اللوز والقهوة، يتوسطه قلب غني بالتونكا والياسمين وزهر العسل، ويستقر على قاعدة دافئة من الفانيليا والكاكاو وخشب الأرز، ليمنحك طابعًا جذابًا ومميزًا.',
+          price: 12000,
+          oldPrice: null,
+          tag: 'الأكثر رواجًا',
+          isTrending: true,
+          isNew: false,
+          badgeType: 'dark'
+        },
+        {
+          id: 7,
+          name: 'عطر إيليا رقم 7',
+          image: 'https://i.imgur.com/UhBdzz6.jpg',
+          description: 'عطر رجالي فاخر وكلاسيكي بطابع منعش مائي، يبدأ بنفحات اللافندر وإكليل الجبل والمنثول، يتوسطه قلب من الياسمين والجيرانيوم وخشب الصندل، ويستقر على قاعدة دافئة من المسك والعنبر تمنحه ثباتًا وأناقة تدوم طويلًا ♥️',
+          price: 12000,
+          oldPrice: null,
+          tag: 'جديد',
+          isTrending: false,
+          isNew: true,
+          badgeType: 'light'
+        }
+      ];
+
+      const FALLBACK_IMAGE = `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
+        <svg xmlns="http://www.w3.org/2000/svg" width="600" height="700" viewBox="0 0 600 700">
+          <rect width="100%" height="100%" fill="#f3f4f6" />
+          <rect x="80" y="110" width="440" height="480" rx="40" fill="#ffffff" stroke="#e5e7eb" />
+          <circle cx="300" cy="260" r="70" fill="#111827" opacity="0.08" />
+          <path d="M255 190h90v45h-90zM235 235h130v170H235z" fill="#111827" opacity="0.2" />
+          <text x="300" y="450" text-anchor="middle" font-size="28" fill="#111827" font-family="Arial">صورة المنتج</text>
+          <text x="300" y="490" text-anchor="middle" font-size="18" fill="#6b7280" font-family="Arial">تعذر تحميل الصورة</text>
+        </svg>
+      `)}`;
+
+      const state = {
+        cart: loadCart(),
+        activeFilter: 'الكل',
+        search: '',
+        selectedProduct: null
+      };
+
+      const el = {
+        searchInput: document.getElementById('searchInput'),
+        productsGrid: document.getElementById('productsGrid'),
+        chipsContainer: document.getElementById('chipsContainer'),
+        resultsText: document.getElementById('resultsText'),
+        trendingStrip: document.getElementById('trendingStrip'),
+        floatingCartBtn: document.getElementById('floatingCartBtn'),
+        floatingCartCount: document.getElementById('floatingCartCount'),
+        headerCartCount: document.getElementById('headerCartCount'),
+        cartDrawer: document.getElementById('cartDrawer'),
+        drawerBackdrop: document.getElementById('drawerBackdrop'),
+        closeCartBtn: document.getElementById('closeCartBtn'),
+        cartBody: document.getElementById('cartBody'),
+        summaryItems: document.getElementById('summaryItems'),
+        summarySubtotal: document.getElementById('summarySubtotal'),
+        summaryDiscount: document.getElementById('summaryDiscount'),
+        summaryTotal: document.getElementById('summaryTotal'),
+        clearCartBtn: document.getElementById('clearCartBtn'),
+        sendWhatsappBtn: document.getElementById('sendWhatsappBtn'),
+        footerWhatsappBtn: document.getElementById('footerWhatsappBtn'),
+        openCartTopBtn: document.getElementById('openCartTopBtn'),
+        openCartHeroBtn: document.getElementById('openCartHeroBtn'),
+        productModal: document.getElementById('productModal'),
+        closeModalBtn: document.getElementById('closeModalBtn'),
+        modalImage: document.getElementById('modalImage'),
+        modalName: document.getElementById('modalName'),
+        modalDesc: document.getElementById('modalDesc'),
+        modalPrice: document.getElementById('modalPrice'),
+        modalOldPrice: document.getElementById('modalOldPrice'),
+        modalAddBtn: document.getElementById('modalAddBtn'),
+        modalBadges: document.getElementById('modalBadges'),
+        modalTitleText: document.getElementById('modalTitleText'),
+        browseProductsBtn: document.getElementById('browseProductsBtn'),
+        scrollTrendingBtn: document.getElementById('scrollTrendingBtn'),
+        productsSection: document.getElementById('productsSection')
+      };
+
+      function loadCart(){
+        try{
+          const raw = localStorage.getItem(STORAGE_KEY);
+          const parsed = raw ? JSON.parse(raw) : [];
+          return Array.isArray(parsed) ? parsed : [];
+        }catch(_){
+          return [];
+        }
+      }
+
+      function saveCart(){
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state.cart));
+      }
+
+      function formatPrice(value){
+        return `${Number(value || 0).toLocaleString('en-US')} ${currency}`;
+      }
+
+      function getDiscount(item){
+        return item.oldPrice && item.oldPrice > item.price ? item.oldPrice - item.price : 0;
+      }
+
+      function escapeHtml(str){
+        return String(str)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#039;');
+      }
+
+      function sanitizeText(value){
+        return String(value || '').replace(/\s+/g, ' ').trim();
+      }
+
+      function getFilters(){
+        return ['الكل', 'الأكثر رواجًا', 'جديد', 'عرض خاص'];
+      }
+
+      function getFilteredProducts(){
+        let list = [...products];
+
+        if(state.activeFilter === 'الأكثر رواجًا'){
+          list = list.filter((p) => p.isTrending);
+        }else if(state.activeFilter === 'جديد'){
+          list = list.filter((p) => p.isNew);
+        }else if(state.activeFilter === 'عرض خاص'){
+          list = list.filter((p) => p.oldPrice && p.oldPrice > p.price);
+        }
+
+        if(state.search.trim()){
+          const q = state.search.trim().toLowerCase();
+          list = list.filter((p) =>
+            p.name.toLowerCase().includes(q) ||
+            p.description.toLowerCase().includes(q) ||
+            p.tag.toLowerCase().includes(q)
+          );
+        }
+
+        return list;
+      }
+
+      function normalizeImgurUrl(src){
+        const value = String(src || '').trim();
+        if(!value) return value;
+        if(value.includes('i.imgur.com/')) return value;
+        const albumMatch = value.match(/^https?:\/\/imgur\.com\/a\/([A-Za-z0-9]+)$/i);
+        if(albumMatch) return value;
+        const pageMatch = value.match(/^https?:\/\/imgur\.com\/([A-Za-z0-9]+)$/i);
+        if(pageMatch) return `https://i.imgur.com/${pageMatch[1]}.jpg`;
+        return value;
+      }
+
+      function imgTag(src, alt, className = '', label = 'صورة المنتج'){
+        const safeClass = className ? ` class="${className}"` : '';
+        const normalizedSrc = normalizeImgurUrl(src);
+        return `<img${safeClass} src="${escapeHtml(normalizedSrc)}" alt="${escapeHtml(alt)}" loading="lazy" data-fallback-label="${escapeHtml(label)}">`;
+      }
+
+      function renderChips(){
+        el.chipsContainer.innerHTML = getFilters().map((filter) => `
+          <button class="chip ${state.activeFilter === filter ? 'active' : ''}" data-filter="${filter}">${filter}</button>
+        `).join('');
+      }
+
+      function renderTrending(){
+        const trending = products.filter((p) => p.isTrending).slice(0, 5);
+        el.trendingStrip.innerHTML = trending.map((product) => `
+          <article class="trending-card">
+            <div class="thumb">
+              ${imgTag(product.image, product.name, '', product.name)}
+            </div>
+            <div>
+              <h4>${escapeHtml(product.name)}</h4>
+              <p>${escapeHtml(product.description)}</p>
+            </div>
+            <div class="price-row">
+              <span class="price">${formatPrice(product.price)}</span>
+              ${product.oldPrice ? `<span class="old-price">${formatPrice(product.oldPrice)}</span>` : ''}
+            </div>
+            <button class="btn primary full" data-quick-add="${product.id}">إضافة سريعة</button>
+          </article>
+        `).join('');
+      }
+
+      function productCardTemplate(product){
+        const discount = getDiscount(product);
+        return `
+          <article class="product-card">
+            <div class="product-media">
+              ${imgTag(product.image, product.name, '', product.name)}
+              <div class="badges">
+                <span class="badge ${product.badgeType || 'light'}">${escapeHtml(product.tag || 'مميز')}</span>
+                ${discount ? `<span class="badge sale">خصم ${formatPrice(discount)}</span>` : ''}
+              </div>
+            </div>
+            <div class="product-body">
+              <h4 class="product-title">${escapeHtml(product.name)}</h4>
+              <p class="product-desc">${escapeHtml(product.description)}</p>
+              <div class="price-row">
+                <span class="price">${formatPrice(product.price)}</span>
+                ${product.oldPrice ? `<span class="old-price">${formatPrice(product.oldPrice)}</span>` : ''}
+                ${discount ? `<span class="saving">وفّر ${formatPrice(discount)}</span>` : ''}
+              </div>
+              <div class="product-actions">
+                <button class="btn soft" data-view="${product.id}">التفاصيل</button>
+                <button class="btn primary" data-add="${product.id}">أضف للسلة</button>
+              </div>
+            </div>
+          </article>
+        `;
+      }
+
+      function renderProducts(){
+        const list = getFilteredProducts();
+        el.resultsText.textContent = list.length ? `${list.length} منتج` : 'لا توجد نتائج';
+        el.productsGrid.innerHTML = list.length ? list.map(productCardTemplate).join('') : `
+          <div style="grid-column:1/-1;border:1px dashed #d8dde6;background:#fff;border-radius:28px;padding:28px;text-align:center;color:var(--muted)">
+            لا توجد منتجات مطابقة للبحث الحالي.
+          </div>
+        `;
+      }
+
+      function cartTotals(){
+        const items = state.cart.reduce((sum, item) => sum + item.qty, 0);
+        const subtotal = state.cart.reduce((sum, item) => sum + ((item.oldPrice || item.price) * item.qty), 0);
+        const total = state.cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+        const discount = subtotal - total;
+        return { items, subtotal, total, discount };
+      }
+
+      function renderCart(){
+        if(!state.cart.length){
+          el.cartBody.innerHTML = `
+            <div class="cart-empty">
+              <div style="font-size:2rem;margin-bottom:8px">🛍️</div>
+              <strong style="display:block;color:#111827;margin-bottom:8px">السلة فارغة</strong>
+              <div>أضف بعض العطور المميزة لتجهيز طلبك ثم أرسله إلى واتساب.</div>
+            </div>
+          `;
+        }else{
+          el.cartBody.innerHTML = state.cart.map((item) => `
+            <article class="cart-item">
+              <div class="thumb">
+                ${imgTag(item.image, item.name, '', item.name)}
+              </div>
+              <div>
+                <h4>${escapeHtml(item.name)}</h4>
+                <div class="meta">${formatPrice(item.price)} × ${item.qty}</div>
+                <div class="qty-row">
+                  <div class="qty-controls">
+                    <button class="qty-btn" data-dec="${item.id}">−</button>
+                    <span class="qty-value">${item.qty}</span>
+                    <button class="qty-btn" data-inc="${item.id}">+</button>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:10px">
+                    <strong>${formatPrice(item.price * item.qty)}</strong>
+                    <button class="remove-btn" data-remove="${item.id}">حذف</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+          `).join('');
+        }
+
+        applyImageFallbacks(el.cartBody);
+        const totals = cartTotals();
+        el.summaryItems.textContent = String(totals.items);
+        el.summarySubtotal.textContent = formatPrice(totals.subtotal);
+        el.summaryDiscount.textContent = formatPrice(totals.discount);
+        el.summaryTotal.textContent = formatPrice(totals.total);
+        el.floatingCartCount.textContent = String(totals.items);
+        el.headerCartCount.textContent = String(totals.items);
+      }
+
+      function openCart(){
+        el.cartDrawer.classList.add('show');
+        el.drawerBackdrop.classList.add('show');
+        el.cartDrawer.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeCart(){
+        el.cartDrawer.classList.remove('show');
+        el.drawerBackdrop.classList.remove('show');
+        el.cartDrawer.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      function openModal(product){
+        if(!product) return;
+        state.selectedProduct = product;
+        el.modalTitleText.textContent = product.name;
+        el.modalImage.src = normalizeImgurUrl(product.image);
+        el.modalImage.alt = product.name;
+        el.modalImage.dataset.fallbackLabel = product.name;
+        el.modalName.textContent = product.name;
+        el.modalDesc.textContent = product.description;
+        el.modalPrice.textContent = formatPrice(product.price);
+        el.modalOldPrice.textContent = product.oldPrice ? formatPrice(product.oldPrice) : '';
+        el.modalOldPrice.style.display = product.oldPrice ? 'inline' : 'none';
+        el.modalBadges.innerHTML = `
+          <span class="badge ${product.badgeType || 'light'}">${escapeHtml(product.tag || 'مميز')}</span>
+          ${product.oldPrice ? `<span class="badge sale">خصم ${formatPrice(product.oldPrice - product.price)}</span>` : ''}
+        `;
+        applyImageFallback(el.modalImage);
+        el.productModal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal(){
+        el.productModal.classList.remove('show');
+        if(!el.cartDrawer.classList.contains('show')){
+          document.body.style.overflow = '';
+        }
+      }
+
+      function addToCart(productId){
+        const product = products.find((p) => p.id === Number(productId));
+        if(!product) return;
+        const existing = state.cart.find((item) => item.id === product.id);
+        if(existing){
+          existing.qty += 1;
+        }else{
+          state.cart.push({
+            id: product.id,
+            name: product.name,
+            image: product.image,
+            price: product.price,
+            oldPrice: product.oldPrice,
+            qty: 1
+          });
+        }
+        saveCart();
+        renderCart();
+      }
+
+      function updateQty(productId, delta){
+        const item = state.cart.find((i) => i.id === Number(productId));
+        if(!item) return;
+        item.qty += delta;
+        if(item.qty <= 0){
+          state.cart = state.cart.filter((i) => i.id !== item.id);
+        }
+        saveCart();
+        renderCart();
+      }
+
+      function removeFromCart(productId){
+        state.cart = state.cart.filter((i) => i.id !== Number(productId));
+        saveCart();
+        renderCart();
+      }
+
+      function clearCart(){
+        state.cart = [];
+        saveCart();
+        renderCart();
+      }
+
+      function buildWhatsappMessage(){
+        if(!state.cart.length){
+          return 'مرحبًا، أرغب بالطلب من متجر إيليا للعطور.';
+        }
+        const totals = cartTotals();
+        const lines = state.cart.map((item, index) => {
+          return `${index + 1}- ${item.name}\nالكمية: ${item.qty}\nسعر القطعة: ${formatPrice(item.price)}\nالإجمالي: ${formatPrice(item.price * item.qty)}`;
+        }).join('\n\n');
+
+        return [
+          'مرحبًا، أرغب بطلب المنتجات التالية من مركز إيليا للعطور:',
+          '',
+          lines,
+          '',
+          `عدد القطع: ${totals.items}`,
+          `إجمالي قبل الخصم: ${formatPrice(totals.subtotal)}`,
+          `إجمالي الخصومات: ${formatPrice(totals.discount)}`,
+          `الإجمالي النهائي: ${formatPrice(totals.total)}`,
+          '',
+          'يرجى تأكيد الطلب والتواصل معي لإتمام التفاصيل. شكرًا لكم 🌸'
+        ].join('\n');
+      }
+
+      function sendToWhatsapp(){
+        const message = buildWhatsappMessage();
+        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+        window.open(url, '_blank', 'noopener');
+      }
+
+      function applyImageFallback(img){
+        if(!img || img.dataset.fallbackBound === '1') return;
+        img.dataset.fallbackBound = '1';
+        img.addEventListener('error', () => {
+          if(img.dataset.fallbackApplied === '1') return;
+          img.dataset.fallbackApplied = '1';
+          img.src = FALLBACK_IMAGE;
+          img.alt = sanitizeText(img.dataset.fallbackLabel || img.alt || 'صورة المنتج');
+        }, { once: true });
+      }
+
+      function applyImageFallbacks(scope = document){
+        scope.querySelectorAll('img[data-fallback-label]').forEach(applyImageFallback);
+      }
+
+      function bindEvents(){
+        el.searchInput.addEventListener('input', (e) => {
+          state.search = e.target.value || '';
+          renderProducts();
+          applyImageFallbacks(el.productsGrid);
+        });
+
+        el.chipsContainer.addEventListener('click', (e) => {
+          const btn = e.target.closest('[data-filter]');
+          if(!btn) return;
+          state.activeFilter = btn.dataset.filter;
+          renderChips();
+          renderProducts();
+          applyImageFallbacks(el.productsGrid);
+        });
+
+        el.productsGrid.addEventListener('click', (e) => {
+          const addBtn = e.target.closest('[data-add]');
+          const viewBtn = e.target.closest('[data-view]');
+          if(addBtn){
+            addToCart(addBtn.dataset.add);
+            return;
+          }
+          if(viewBtn){
+            const product = products.find((p) => p.id === Number(viewBtn.dataset.view));
+            openModal(product);
+          }
+        });
+
+        el.trendingStrip.addEventListener('click', (e) => {
+          const quickBtn = e.target.closest('[data-quick-add]');
+          if(!quickBtn) return;
+          addToCart(quickBtn.dataset.quickAdd);
+        });
+
+        el.cartBody.addEventListener('click', (e) => {
+          const incBtn = e.target.closest('[data-inc]');
+          const decBtn = e.target.closest('[data-dec]');
+          const removeBtn = e.target.closest('[data-remove]');
+          if(incBtn) updateQty(incBtn.dataset.inc, 1);
+          if(decBtn) updateQty(decBtn.dataset.dec, -1);
+          if(removeBtn) removeFromCart(removeBtn.dataset.remove);
+        });
+
+        [el.floatingCartBtn, el.openCartTopBtn, el.openCartHeroBtn].forEach((btn) => {
+          btn.addEventListener('click', openCart);
+        });
+
+        el.closeCartBtn.addEventListener('click', closeCart);
+        el.drawerBackdrop.addEventListener('click', closeCart);
+        el.clearCartBtn.addEventListener('click', clearCart);
+        el.sendWhatsappBtn.addEventListener('click', sendToWhatsapp);
+        el.footerWhatsappBtn.addEventListener('click', sendToWhatsapp);
+
+        el.closeModalBtn.addEventListener('click', closeModal);
+        el.productModal.addEventListener('click', (e) => {
+          if(e.target === el.productModal) closeModal();
+        });
+
+        el.modalAddBtn.addEventListener('click', () => {
+          if(!state.selectedProduct) return;
+          addToCart(state.selectedProduct.id);
+          closeModal();
+          openCart();
+        });
+
+        el.browseProductsBtn.addEventListener('click', () => {
+          el.productsSection.scrollIntoView({ behavior:'smooth', block:'start' });
+        });
+
+        el.scrollTrendingBtn.addEventListener('click', () => {
+          document.getElementById('trendingSection').scrollIntoView({ behavior:'smooth', block:'start' });
+        });
+
+        document.addEventListener('keydown', (e) => {
+          if(e.key === 'Escape'){
+            closeModal();
+            closeCart();
+          }
+        });
+      }
+
+      function runTests(){
+        console.assert(formatPrice(12345) === '12,345 د.ع', 'formatPrice should format Iraqi dinar values');
+        console.assert(getDiscount({ price: 20000, oldPrice: 25000 }) === 5000, 'getDiscount should return price difference');
+        console.assert(getDiscount({ price: 20000, oldPrice: null }) === 0, 'getDiscount should return 0 when no old price');
+        console.assert(escapeHtml('<img src="x">').includes('&lt;img'), 'escapeHtml should escape HTML tags');
+        console.assert(imgTag('https://example.com/x.jpg', 'منتج').includes('data-fallback-label'), 'imgTag should include fallback marker');
+        console.assert(normalizeImgurUrl('https://imgur.com/REVuOIm') === 'https://i.imgur.com/REVuOIm.jpg', 'normalizeImgurUrl should convert imgur page URLs to direct image URLs');
+        console.assert(normalizeImgurUrl('https://i.imgur.com/REVuOIm.jpg') === 'https://i.imgur.com/REVuOIm.jpg', 'normalizeImgurUrl should preserve direct image URLs');
+      }
+
+      function init(){
+        renderChips();
+        renderTrending();
+        renderProducts();
+        renderCart();
+        applyImageFallbacks(document);
+        bindEvents();
+        runTests();
+      }
+
+      init();
+    })();
+  </script>
+</body>
+</html>
