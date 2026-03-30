@@ -1,9 +1,9 @@
 [
   {
     "id": 1,
-    "name": "عطر إيليا رقم 1",
-    "image": "https://i.imgur.com/GabFICL.jpg",
-    "description": "وصف المنتج هنا",
+    "name": "عطر إيليا رقم  10",
+    "image": "https://imgur.com/undefined",
+    "description": "عطر إيليا رقم 10 للجنسين هو أو دي بارفان يجمع بتناغم بين نفحات الحمضيات المنعشة ولمسات الفواكه مع عبير الجاردينيا، ليمنحك حضورًا حيويًا وإشراقة لا تُنسى. يبدأ بانتعاش جذاب، ثم يتدرج إلى نعومة أنيقة تدوم طويلًا، مما يجعله خيارًا مثاليًا للاستخدام اليومي ولمختلف المناسبات. 🤍♥️",
     "price": 12000,
     "oldPrice": null,
     "tag": "الأكثر رواجًا",
@@ -11,16 +11,5 @@
     "isNew": true,
     "badgeType": "dark"
   },
-  {
-    "id": 2,
-    "name": "عطر إيليا رقم 2",
-    "image": "https://i.imgur.com/REVuOIm.jpg",
-    "description": "وصف المنتج هنا",
-    "price": 12000,
-    "oldPrice": null,
-    "tag": "جديد",
-    "isTrending": false,
-    "isNew": true,
-    "badgeType": "light"
-  }
+
 ]
