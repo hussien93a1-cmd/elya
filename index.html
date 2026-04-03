@@ -6,25 +6,16 @@
   <title>متجر عطور فاخر</title>
   <style>
     :root{
-      --bg:#f7f4ef;
-      --bg-soft:#fbfaf7;
-      --panel:rgba(255,255,255,.88);
-      --panel-strong:#ffffff;
       --text:#171412;
       --muted:#766a61;
       --line:#e9e0d4;
       --gold:#b8925e;
       --gold-2:#d2b07c;
       --dark:#111111;
-      --dark-2:#1b1b1b;
       --danger:#c74b4b;
       --success:#187b57;
       --shadow:0 20px 60px rgba(0,0,0,.08);
       --shadow-soft:0 12px 30px rgba(24,20,18,.08);
-      --radius-xl:28px;
-      --radius-lg:22px;
-      --radius-md:16px;
-      --radius-sm:12px;
       --header-h:78px;
       --container:1200px;
       --transition:.28s cubic-bezier(.2,.8,.2,1);
@@ -45,97 +36,32 @@
     img{max-width:100%;display:block}
     button,input,textarea,select{font:inherit}
     a{text-decoration:none;color:inherit}
+    .hidden{display:none !important}
 
     .container{width:min(var(--container), calc(100% - 28px)); margin-inline:auto}
-
-    .topbar{
-      position:sticky; top:0; z-index:70;
-      backdrop-filter:blur(14px);
-      background:rgba(250,247,241,.75);
-      border-bottom:1px solid rgba(185,164,136,.18);
-    }
-    .topbar-inner{
-      height:var(--header-h);
-      display:flex; align-items:center; justify-content:space-between; gap:16px;
-    }
+    .topbar{position:sticky; top:0; z-index:70; backdrop-filter:blur(14px); background:rgba(250,247,241,.75); border-bottom:1px solid rgba(185,164,136,.18)}
+    .topbar-inner{height:var(--header-h); display:flex; align-items:center; justify-content:space-between; gap:16px}
     .brand{display:flex;align-items:center;gap:14px;min-width:0}
-    .brand-mark{
-      width:50px;height:50px;border-radius:18px;
-      background:linear-gradient(145deg,var(--dark),#2a2723);
-      color:#fff;display:grid;place-items:center;
-      box-shadow:0 12px 28px rgba(0,0,0,.18);
-      border:1px solid rgba(255,255,255,.08);
-      font-weight:700;
-      letter-spacing:.5px;
-    }
-    .brand-copy{min-width:0}
+    .brand-mark{width:50px;height:50px;border-radius:18px;background:linear-gradient(145deg,var(--dark),#2a2723);color:#fff;display:grid;place-items:center;box-shadow:0 12px 28px rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.08);font-weight:700;letter-spacing:.5px}
     .brand-copy h1{margin:0;font-size:1.08rem}
     .brand-copy p{margin:3px 0 0;color:var(--muted);font-size:.9rem}
-
     .nav-tools{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
-    .search-wrap{
-      position:relative; min-width:min(340px, 100%);
-    }
-    .search-input{
-      width:100%; border:none; outline:none;
-      background:rgba(255,255,255,.9); color:var(--text);
-      border:1px solid var(--line);
-      border-radius:999px; padding:14px 18px 14px 48px;
-      box-shadow:var(--shadow-soft);
-    }
-    .search-icon{
-      position:absolute; inset-inline-start:16px; top:50%; transform:translateY(-50%);
-      opacity:.55; pointer-events:none;
-    }
-    .icon-btn,.primary-btn,.ghost-btn,.danger-btn,.success-btn{
-      border:none; outline:none; cursor:pointer; transition:var(--transition);
-      border-radius:999px; white-space:nowrap;
-    }
-    .icon-btn{
-      width:46px;height:46px;display:grid;place-items:center;
-      background:rgba(255,255,255,.92); border:1px solid var(--line);
-      box-shadow:var(--shadow-soft);
-    }
+    .search-wrap{position:relative; min-width:min(340px, 100%)}
+    .search-input{width:100%; border:none; outline:none; background:rgba(255,255,255,.9); color:var(--text); border:1px solid var(--line); border-radius:999px; padding:14px 18px 14px 48px; box-shadow:var(--shadow-soft)}
+    .search-icon{position:absolute; inset-inline-start:16px; top:50%; transform:translateY(-50%); opacity:.55; pointer-events:none}
+    .icon-btn,.primary-btn,.ghost-btn,.danger-btn,.success-btn{border:none; outline:none; cursor:pointer; transition:var(--transition); border-radius:999px; white-space:nowrap}
+    .icon-btn{width:46px;height:46px;display:grid;place-items:center;background:rgba(255,255,255,.92); border:1px solid var(--line); box-shadow:var(--shadow-soft)}
     .icon-btn:hover,.ghost-btn:hover,.primary-btn:hover,.danger-btn:hover,.success-btn:hover{transform:translateY(-2px)}
-    .primary-btn{
-      background:linear-gradient(135deg,var(--dark),#26221f);
-      color:#fff; padding:13px 18px; box-shadow:0 12px 24px rgba(0,0,0,.15);
-    }
-    .ghost-btn{
-      background:#fff; color:var(--text); padding:13px 18px; border:1px solid var(--line);
-    }
-    .danger-btn{
-      background:#fff1f1; color:#9f3030; padding:12px 16px; border:1px solid #f2cbcb;
-    }
-    .success-btn{
-      background:#ebfff7; color:#166646; padding:12px 16px; border:1px solid #c8ecdf;
-    }
+    .primary-btn{background:linear-gradient(135deg,var(--dark),#26221f); color:#fff; padding:13px 18px; box-shadow:0 12px 24px rgba(0,0,0,.15)}
+    .ghost-btn{background:#fff; color:var(--text); padding:13px 18px; border:1px solid var(--line)}
+    .danger-btn{background:#fff1f1; color:#9f3030; padding:12px 16px; border:1px solid #f2cbcb}
+    .success-btn{background:#ebfff7; color:#166646; padding:12px 16px; border:1px solid #c8ecdf}
 
     .hero{padding:28px 0 20px}
-    .hero-card{
-      min-height:520px; border-radius:36px; overflow:hidden; position:relative;
-      background:
-        linear-gradient(120deg, rgba(17,17,17,.92) 0%, rgba(17,17,17,.70) 34%, rgba(17,17,17,.08) 62%),
-        var(--hero-image, url('https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=1400&auto=format&fit=crop')) center/cover no-repeat;
-      box-shadow:0 30px 80px rgba(0,0,0,.18);
-      display:grid; align-items:end;
-      isolation:isolate;
-    }
-    .hero-card::after{
-      content:""; position:absolute; inset:0;
-      background:radial-gradient(circle at 72% 28%, rgba(210,176,124,.28), transparent 28%);
-      z-index:-1;
-    }
-    .hero-content{
-      padding:34px; color:#fff; width:min(560px, 100%);
-    }
-    .badge{
-      display:inline-flex; align-items:center; gap:8px;
-      background:rgba(255,255,255,.12);
-      border:1px solid rgba(255,255,255,.16);
-      color:#fff; padding:10px 14px; border-radius:999px; backdrop-filter:blur(10px);
-      font-size:.92rem;
-    }
+    .hero-card{min-height:520px; border-radius:36px; overflow:hidden; position:relative; background:linear-gradient(120deg, rgba(17,17,17,.92) 0%, rgba(17,17,17,.70) 34%, rgba(17,17,17,.08) 62%), var(--hero-image, url('https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=1400&auto=format&fit=crop')) center/cover no-repeat; box-shadow:0 30px 80px rgba(0,0,0,.18); display:grid; align-items:end; isolation:isolate}
+    .hero-card::after{content:""; position:absolute; inset:0; background:radial-gradient(circle at 72% 28%, rgba(210,176,124,.28), transparent 28%); z-index:-1}
+    .hero-content{padding:34px; color:#fff; width:min(560px, 100%)}
+    .badge{display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.16); color:#fff; padding:10px 14px; border-radius:999px; backdrop-filter:blur(10px); font-size:.92rem}
     .hero-title{font-size:clamp(2rem, 4vw, 4.4rem); line-height:1.06; margin:18px 0 12px; font-weight:800}
     .hero-text{font-size:1.06rem; line-height:1.9; color:rgba(255,255,255,.84); margin:0 0 22px}
     .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
@@ -143,57 +69,26 @@
     .hero-actions .ghost-btn{background:rgba(255,255,255,.10); color:#fff; border-color:rgba(255,255,255,.18)}
 
     .section{padding:22px 0}
-    .section-head{
-      display:flex;align-items:end;justify-content:space-between;gap:14px;flex-wrap:wrap;
-      margin-bottom:16px;
-    }
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:16px}
     .section-title{margin:0;font-size:1.5rem}
     .section-sub{margin:6px 0 0;color:var(--muted);line-height:1.8}
-
     .chips{display:flex;gap:10px;overflow:auto;padding-bottom:6px;scrollbar-width:none}
     .chips::-webkit-scrollbar{display:none}
-    .chip{
-      border:none; cursor:pointer; white-space:nowrap;
-      border-radius:999px; padding:11px 16px;
-      background:#fff; color:var(--text); border:1px solid var(--line);
-      box-shadow:var(--shadow-soft); transition:var(--transition);
-    }
+    .chip{border:none; cursor:pointer; white-space:nowrap; border-radius:999px; padding:11px 16px; background:#fff; color:var(--text); border:1px solid var(--line); box-shadow:var(--shadow-soft); transition:var(--transition)}
     .chip.active{background:linear-gradient(135deg,var(--dark),#2c2825);color:#fff;border-color:#2c2825}
+    .feature-strip{display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:14px}
+    .feature-box{background:rgba(255,255,255,.8); border:1px solid var(--line); border-radius:24px; padding:18px; box-shadow:var(--shadow-soft)}
+    .feature-box h3{margin:0 0 8px;font-size:1rem}
+    .feature-box p{margin:0;color:var(--muted);line-height:1.8;font-size:.94rem}
 
-    .products-grid{
-      display:grid; gap:14px;
-      grid-template-columns:repeat(2, minmax(0, 1fr));
-    }
-    .product-card{
-      position:relative; overflow:hidden;
-      background:rgba(255,255,255,.86);
-      border:1px solid rgba(233,224,212,.9);
-      box-shadow:var(--shadow-soft);
-      border-radius:26px; padding:12px;
-      transition:var(--transition);
-      display:flex; flex-direction:column; gap:12px;
-      backdrop-filter:blur(8px);
-    }
+    .products-grid{display:grid; gap:14px; grid-template-columns:repeat(2, minmax(0, 1fr))}
+    .product-card{position:relative; overflow:hidden; background:rgba(255,255,255,.86); border:1px solid rgba(233,224,212,.9); box-shadow:var(--shadow-soft); border-radius:26px; padding:12px; transition:var(--transition); display:flex; flex-direction:column; gap:12px; backdrop-filter:blur(8px)}
     .product-card:hover{transform:translateY(-6px); box-shadow:0 25px 50px rgba(0,0,0,.10)}
-    .product-media{
-      aspect-ratio:4/4.7; border-radius:20px; overflow:hidden; position:relative;
-      background:#f3ede4;
-    }
-    .product-media img{
-      width:100%; height:100%; object-fit:cover; transition:transform .6s ease;
-    }
+    .product-media{aspect-ratio:4/4.7; border-radius:20px; overflow:hidden; position:relative; background:#f3ede4}
+    .product-media img{width:100%; height:100%; object-fit:cover; transition:transform .6s ease}
     .product-card:hover .product-media img{transform:scale(1.06)}
-    .ribbon{
-      position:absolute; top:12px; inset-inline-start:12px; z-index:3;
-      background:rgba(17,17,17,.88); color:#fff; padding:8px 12px; border-radius:999px; font-size:.78rem;
-      border:1px solid rgba(255,255,255,.08);
-      backdrop-filter:blur(10px);
-    }
-    .fav-badge{
-      position:absolute; top:12px; inset-inline-end:12px; z-index:3;
-      width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
-      background:rgba(255,255,255,.88); border:1px solid rgba(255,255,255,.7);
-    }
+    .ribbon{position:absolute; top:12px; inset-inline-start:12px; z-index:3; background:rgba(17,17,17,.88); color:#fff; padding:8px 12px; border-radius:999px; font-size:.78rem; border:1px solid rgba(255,255,255,.08); backdrop-filter:blur(10px)}
+    .fav-badge{position:absolute; top:12px; inset-inline-end:12px; z-index:3; width:38px;height:38px;border-radius:50%;display:grid;place-items:center; background:rgba(255,255,255,.88); border:1px solid rgba(255,255,255,.7)}
     .product-body{display:flex;flex-direction:column;gap:8px}
     .product-name{margin:0;font-size:1rem; line-height:1.6}
     .product-desc{margin:0;color:var(--muted);font-size:.9rem;line-height:1.75;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
@@ -203,79 +98,38 @@
     .product-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
     .product-actions button{padding:12px 10px;border-radius:16px}
 
-    .feature-strip{
-      display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:14px;
-    }
-    .feature-box{
-      background:rgba(255,255,255,.8); border:1px solid var(--line); border-radius:24px;
-      padding:18px; box-shadow:var(--shadow-soft);
-    }
-    .feature-box h3{margin:0 0 8px;font-size:1rem}
-    .feature-box p{margin:0;color:var(--muted);line-height:1.8;font-size:.94rem}
-
-    .drawer,.modal,.sheet,.settings-panel{position:fixed; inset:0; z-index:100; display:none}
-    .drawer.show,.modal.show,.sheet.show,.settings-panel.show{display:block}
-    .overlay{
-      position:absolute; inset:0; background:rgba(17,17,17,.46); backdrop-filter:blur(6px);
-    }
-
-    .cart-panel{
-      position:absolute; inset-inline-end:0; top:0; bottom:0; width:min(520px,100%);
-      background:linear-gradient(180deg,#fff 0%, #fbf8f3 100%);
-      box-shadow:-14px 0 40px rgba(0,0,0,.14);
-      display:flex; flex-direction:column;
-      border-inline-start:1px solid var(--line);
-      animation:slideIn .25s ease;
-    }
+    .drawer,.modal,.settings-panel{position:fixed; inset:0; z-index:100; display:none}
+    .drawer.show,.modal.show,.settings-panel.show{display:block}
+    .overlay{position:absolute; inset:0; background:rgba(17,17,17,.46); backdrop-filter:blur(6px)}
+    .cart-panel{position:absolute; inset-inline-end:0; top:0; bottom:0; width:min(520px,100%); background:linear-gradient(180deg,#fff 0%, #fbf8f3 100%); box-shadow:-14px 0 40px rgba(0,0,0,.14); display:flex; flex-direction:column; border-inline-start:1px solid var(--line); animation:slideIn .25s ease}
     @keyframes slideIn{from{transform:translateX(30px);opacity:0}to{transform:none;opacity:1}}
-
-    .panel-head{
-      padding:20px 18px; border-bottom:1px solid var(--line);
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
-      background:rgba(255,255,255,.82); backdrop-filter:blur(10px);
-    }
+    .panel-head{padding:20px 18px; border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; gap:12px; background:rgba(255,255,255,.82); backdrop-filter:blur(10px)}
     .panel-head h3{margin:0;font-size:1.1rem}
     .panel-body{padding:14px;overflow:auto;flex:1}
     .panel-foot{padding:16px;border-top:1px solid var(--line);background:#fff}
-
     .cart-items{display:flex;flex-direction:column;gap:10px}
-    .cart-item{
-      display:grid; grid-template-columns:76px 1fr auto; gap:10px; align-items:center;
-      padding:10px; border-radius:18px; background:#fff; border:1px solid var(--line);
-      box-shadow:var(--shadow-soft);
-    }
+    .cart-item{display:grid; grid-template-columns:76px 1fr auto; gap:10px; align-items:center; padding:10px; border-radius:18px; background:#fff; border:1px solid var(--line); box-shadow:var(--shadow-soft)}
     .cart-item img{width:76px;height:88px;object-fit:cover;border-radius:14px;background:#f4efe6}
     .cart-item h4{margin:0 0 6px;font-size:.96rem}
     .cart-item p{margin:0;color:var(--muted);font-size:.86rem}
     .qty-box{display:flex;align-items:center;gap:8px;margin-top:9px}
-    .qty-box button{
-      width:30px;height:30px;border:none;border-radius:10px;cursor:pointer;background:#f8f3ec;border:1px solid var(--line)
-    }
+    .qty-box button{width:30px;height:30px;border:none;border-radius:10px;cursor:pointer;background:#f8f3ec;border:1px solid var(--line)}
     .cart-line-price{font-weight:800;white-space:nowrap}
-    .summary{
-      display:flex; flex-direction:column; gap:10px;
-      background:#fffaf3; border:1px solid #f0e0c2; border-radius:18px; padding:14px; margin-bottom:12px;
-    }
+    .summary{display:flex; flex-direction:column; gap:10px; background:#fffaf3; border:1px solid #f0e0c2; border-radius:18px; padding:14px; margin-bottom:12px}
     .summary-row{display:flex; align-items:center; justify-content:space-between; gap:10px}
     .summary-row.total{font-weight:800;font-size:1.06rem;color:var(--dark)}
 
-    .product-modal-card,.checkout-card,.settings-card{
-      position:absolute; inset:50% auto auto 50%; transform:translate(-50%,-50%);
-      width:min(1020px, calc(100% - 22px)); max-height:min(88vh, 980px);
-      overflow:auto;
-      background:linear-gradient(180deg,#fff 0%, #fbf8f4 100%);
-      border:1px solid rgba(233,224,212,.95);
-      border-radius:30px; box-shadow:0 30px 90px rgba(0,0,0,.24);
-      animation:rise .24s ease;
-    }
+    .product-modal-card,.checkout-card{position:absolute; inset:50% auto auto 50%; transform:translate(-50%,-50%); width:min(1020px, calc(100% - 22px)); max-height:min(88vh, 980px); overflow:auto; background:linear-gradient(180deg,#fff 0%, #fbf8f4 100%); border:1px solid rgba(233,224,212,.95); border-radius:30px; box-shadow:0 30px 90px rgba(0,0,0,.24); animation:rise .24s ease}
+    .settings-side{position:absolute; inset-inline-start:0; top:0; bottom:0; width:min(760px,100%); background:linear-gradient(180deg,#fff 0%, #faf7f1 100%); box-shadow:14px 0 40px rgba(0,0,0,.16); animation:panelIn .24s ease; overflow:auto; border-inline-end:1px solid var(--line)}
+    .auth-modal-card{position:absolute; inset:50% auto auto 50%; transform:translate(-50%,-50%); width:min(460px, calc(100% - 18px)); background:linear-gradient(180deg,#fff 0%, #fbf8f4 100%); border:1px solid rgba(233,224,212,.95); border-radius:28px; box-shadow:0 30px 90px rgba(0,0,0,.24); padding:18px; animation:rise .24s ease}
     @keyframes rise{from{transform:translate(-50%,-47%);opacity:0}to{transform:translate(-50%,-50%);opacity:1}}
+    @keyframes panelIn{from{transform:translateX(-26px);opacity:0}to{transform:none;opacity:1}}
+    .auth-lock-icon{width:66px;height:66px;border-radius:22px;display:grid;place-items:center; margin:6px auto 14px; background:linear-gradient(135deg,var(--dark),#2a2724); color:#fff; box-shadow:0 16px 30px rgba(0,0,0,.18); font-size:1.4rem}
+    .auth-title{text-align:center;margin:0 0 8px;font-size:1.35rem}
+    .auth-sub{text-align:center;color:var(--muted);margin:0 0 16px;line-height:1.9}
 
-    .product-modal-grid{
-      display:grid; grid-template-columns:1fr 1fr; gap:24px; padding:20px;
-    }
-    .pm-image{
-      border-radius:24px; overflow:hidden; background:#efe7db; min-height:420px;
-    }
+    .product-modal-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px; padding:20px}
+    .pm-image{border-radius:24px; overflow:hidden; background:#efe7db; min-height:420px}
     .pm-image img{width:100%; height:100%; object-fit:cover}
     .pm-content{display:flex;flex-direction:column;gap:16px}
     .pm-title{margin:0;font-size:2rem;line-height:1.35}
@@ -291,43 +145,21 @@
     .mini-card h5{margin:10px 0 6px;font-size:.86rem;line-height:1.6}
     .mini-card p{margin:0;color:var(--muted);font-size:.82rem}
 
-    .checkout-card,.settings-card{padding:18px}
     .modal-header{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
     .modal-header h3{margin:0}
     .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
     .form-group{display:flex;flex-direction:column;gap:8px}
     .form-group.full{grid-column:1/-1}
     label{font-weight:600;font-size:.94rem}
-    input,textarea,select{
-      width:100%; border:1px solid var(--line); background:#fff; border-radius:16px; padding:14px 15px;
-      outline:none; transition:var(--transition);
-    }
+    input,textarea,select{width:100%; border:1px solid var(--line); background:#fff; border-radius:16px; padding:14px 15px; outline:none; transition:var(--transition)}
     textarea{min-height:110px; resize:vertical}
     input:focus,textarea:focus,select:focus{border-color:#d4bc92; box-shadow:0 0 0 4px rgba(210,176,124,.12)}
-
-    .invoice-box{
-      background:#fff; border:1px solid var(--line); border-radius:20px; padding:16px;
-      margin-top:16px;
-    }
+    .invoice-box{background:#fff; border:1px solid var(--line); border-radius:20px; padding:16px; margin-top:16px}
     .invoice-box h4{margin:0 0 12px}
     .invoice-lines{display:flex;flex-direction:column;gap:8px}
     .invoice-line{display:flex;justify-content:space-between;gap:12px;color:var(--muted)}
 
-    .fab{
-      position:fixed; inset-inline-start:18px; bottom:18px; z-index:90;
-      width:62px;height:62px;border:none;cursor:pointer;border-radius:22px;
-      background:linear-gradient(135deg,var(--dark),#2a2724); color:#fff;
-      box-shadow:0 18px 38px rgba(0,0,0,.24);
-    }
-
-    .settings-side{
-      position:absolute; inset-inline-start:0; top:0; bottom:0; width:min(720px,100%);
-      background:linear-gradient(180deg,#fff 0%, #faf7f1 100%);
-      box-shadow:14px 0 40px rgba(0,0,0,.16);
-      animation:panelIn .24s ease;
-      overflow:auto; border-inline-end:1px solid var(--line);
-    }
-    @keyframes panelIn{from{transform:translateX(-26px);opacity:0}to{transform:none;opacity:1}}
+    .fab{position:fixed; inset-inline-start:18px; bottom:18px; z-index:90; width:62px;height:62px;border:none;cursor:pointer;border-radius:22px; background:linear-gradient(135deg,var(--dark),#2a2724); color:#fff; box-shadow:0 18px 38px rgba(0,0,0,.24)}
     .settings-tabs{display:flex;gap:8px;overflow:auto;padding-bottom:6px;margin-bottom:14px}
     .tab-btn{padding:12px 14px;border:none;border-radius:14px;background:#fff;border:1px solid var(--line);cursor:pointer;white-space:nowrap}
     .tab-btn.active{background:#1c1917;color:#fff;border-color:#1c1917}
@@ -338,33 +170,16 @@
     .admin-item{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:12px;border-radius:16px;background:#faf7f1;border:1px solid var(--line)}
     .stack{display:flex;gap:8px;flex-wrap:wrap}
     .muted{color:var(--muted)}
-    .empty{
-      padding:18px;text-align:center;color:var(--muted);background:#fff;border:1px dashed #dbcdbb;border-radius:18px
-    }
-
-    .toast-wrap{
-      position:fixed; top:94px; inset-inline-start:50%; transform:translateX(-50%);
-      z-index:140; display:flex; flex-direction:column; gap:10px; width:min(420px, calc(100% - 24px));
-      pointer-events:none;
-    }
-    .toast{
-      background:#1c1917; color:#fff; border-radius:18px; padding:14px 16px; box-shadow:0 18px 40px rgba(0,0,0,.24);
-      animation:toastIn .25s ease;
-    }
-    @keyframes toastIn{from{opacity:0; transform:translateY(-8px)}to{opacity:1; transform:none}}
+    .empty{padding:18px;text-align:center;color:var(--muted);background:#fff;border:1px dashed #dbcdbb;border-radius:18px}
 
     .footer{padding:26px 0 46px;color:var(--muted)}
-    .footer-card{
-      background:rgba(255,255,255,.7); border:1px solid var(--line); border-radius:28px; padding:18px;
-      display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap
-    }
+    .footer-card{background:rgba(255,255,255,.7); border:1px solid var(--line); border-radius:28px; padding:18px; display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .toast-wrap{position:fixed; top:94px; inset-inline-start:50%; transform:translateX(-50%); z-index:140; display:flex; flex-direction:column; gap:10px; width:min(420px, calc(100% - 24px)); pointer-events:none}
+    .toast{background:#1c1917; color:#fff; border-radius:18px; padding:14px 16px; box-shadow:0 18px 40px rgba(0,0,0,.24); animation:toastIn .25s ease}
+    @keyframes toastIn{from{opacity:0; transform:translateY(-8px)}to{opacity:1; transform:none}}
 
-    @media (min-width:780px){
-      .products-grid{grid-template-columns:repeat(3, minmax(0, 1fr))}
-    }
-    @media (min-width:1080px){
-      .products-grid{grid-template-columns:repeat(4, minmax(0, 1fr))}
-    }
+    @media (min-width:780px){ .products-grid{grid-template-columns:repeat(3, minmax(0, 1fr))} }
+    @media (min-width:1080px){ .products-grid{grid-template-columns:repeat(4, minmax(0, 1fr))} }
     @media (max-width:960px){
       .topbar-inner{height:auto;padding:12px 0;align-items:stretch;flex-direction:column}
       .nav-tools{justify-content:stretch}
@@ -379,12 +194,12 @@
       .hero-content{padding:22px}
       .hero-title{font-size:2.1rem}
       .feature-strip{grid-template-columns:1fr}
-      .cart-item{grid-template-columns:68px 1fr;}
+      .cart-item{grid-template-columns:68px 1fr}
       .cart-line-price{grid-column:2;justify-self:end}
       .product-actions{grid-template-columns:1fr}
       .fab{inset-inline-start:12px;bottom:12px}
       .panel-head,.panel-foot,.panel-body{padding-inline:12px}
-      .product-modal-card,.checkout-card,.settings-card{width:min(calc(100% - 12px), 1020px);border-radius:24px}
+      .product-modal-card,.checkout-card{width:min(calc(100% - 12px), 1020px);border-radius:24px}
       .product-modal-grid{padding:12px}
       .pm-title{font-size:1.45rem}
     }
@@ -410,8 +225,8 @@
     </div>
   </div>
 
-  <main>
-    <section class="hero">
+  <main id="siteMain" style="display:flex;flex-direction:column;gap:0">
+    <section class="hero" id="heroSection">
       <div class="container">
         <div class="hero-card" id="heroCard">
           <div class="hero-content">
@@ -427,44 +242,27 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="featuresSection">
       <div class="container">
         <div class="feature-strip">
-          <div class="feature-box">
-            <h3>تجربة فاخرة</h3>
-            <p>واجهة عربية راقية وسريعة، مصممة للهاتف أولًا مع إحساس بصري فاخر ونظيف.</p>
-          </div>
-          <div class="feature-box">
-            <h3>طلب سهل عبر واتساب</h3>
-            <p>فاتورة مرتبة ورسالة جاهزة للإرسال إلى رقم الواتساب الذي تحدده من الإعدادات.</p>
-          </div>
-          <div class="feature-box">
-            <h3>إدارة مباشرة</h3>
-            <p>إضافة المنتجات والأقسام والإعدادات من داخل المتجر، مع دعم التخزين المحلي وFirebase.</p>
-          </div>
+          <div class="feature-box"><h3>تجربة فاخرة</h3><p>واجهة عربية راقية وسريعة، مصممة للهاتف أولًا مع إحساس بصري فاخر ونظيف.</p></div>
+          <div class="feature-box"><h3>طلب سهل عبر واتساب</h3><p>فاتورة مرتبة ورسالة جاهزة للإرسال إلى رقم الواتساب الذي تحدده من الإعدادات.</p></div>
+          <div class="feature-box"><h3>إدارة مباشرة</h3><p>إضافة المنتجات والأقسام والإعدادات من داخل المتجر، مع دعم التخزين المحلي وFirebase.</p></div>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="categoriesSection">
       <div class="container">
-        <div class="section-head">
-          <div>
-            <h3 class="section-title">الأقسام</h3>
-            <p class="section-sub">اختر القسم المناسب أو استعرض كل العطور معًا.</p>
-          </div>
-        </div>
+        <div class="section-head"><div><h3 class="section-title">الأقسام</h3><p class="section-sub">اختر القسم المناسب أو استعرض كل العطور معًا.</p></div></div>
         <div class="chips" id="categoriesChips"></div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="productsSection">
       <div class="container">
         <div class="section-head">
-          <div>
-            <h3 class="section-title">عطور مختارة</h3>
-            <p class="section-sub">بطاقات أنيقة وصور بارزة تمنح كل عطر حضوره الخاص.</p>
-          </div>
+          <div><h3 class="section-title">عطور مختارة</h3><p class="section-sub">بطاقات أنيقة وصور بارزة تمنح كل عطر حضوره الخاص.</p></div>
           <div class="stack">
             <button class="ghost-btn" id="showBestSellerBtn">الأكثر طلبًا</button>
             <button class="ghost-btn" id="showFeaturedBtn">العطور المميزة</button>
@@ -475,13 +273,10 @@
     </section>
   </main>
 
-  <footer class="footer">
+  <footer class="footer" id="footerSection">
     <div class="container">
       <div class="footer-card">
-        <div>
-          <strong id="footerStoreName">متجر العطور الفاخر</strong>
-          <div class="muted">واجهة عربية فاخرة متوافقة مع الهاتف والتابلت والكمبيوتر.</div>
-        </div>
+        <div><strong id="footerStoreName">متجر العطور الفاخر</strong><div class="muted">واجهة عربية فاخرة متوافقة مع الهاتف والتابلت والكمبيوتر.</div></div>
         <div class="muted">Firebase + WhatsApp + إدارة منتجات مباشرة</div>
       </div>
     </div>
@@ -492,22 +287,14 @@
   <div class="drawer" id="cartDrawer">
     <div class="overlay" data-close="cart"></div>
     <aside class="cart-panel">
-      <div class="panel-head">
-        <h3>سلة المشتريات</h3>
-        <button class="icon-btn" data-close="cart">✕</button>
-      </div>
-      <div class="panel-body">
-        <div id="cartItems" class="cart-items"></div>
-      </div>
+      <div class="panel-head"><h3>سلة المشتريات</h3><button class="icon-btn" data-close="cart">✕</button></div>
+      <div class="panel-body"><div id="cartItems" class="cart-items"></div></div>
       <div class="panel-foot">
         <div class="summary">
           <div class="summary-row"><span>عدد السطور</span><strong id="cartCount">0</strong></div>
           <div class="summary-row total"><span>الإجمالي</span><strong id="cartTotal">0 د.ع</strong></div>
         </div>
-        <div class="stack">
-          <button class="ghost-btn" id="clearCartBtn">تفريغ السلة</button>
-          <button class="primary-btn" id="checkoutBtn">إتمام الطلب</button>
-        </div>
+        <div class="stack"><button class="ghost-btn" id="clearCartBtn">تفريغ السلة</button><button class="primary-btn" id="checkoutBtn">إتمام الطلب</button></div>
       </div>
     </aside>
   </div>
@@ -515,198 +302,122 @@
   <div class="modal" id="productModal">
     <div class="overlay" data-close="product"></div>
     <div class="product-modal-card">
-      <div class="modal-header" style="padding:18px 18px 0 18px">
-        <h3>تفاصيل العطر</h3>
-        <button class="icon-btn" data-close="product">✕</button>
-      </div>
+      <div class="modal-header" style="padding:18px 18px 0 18px"><h3>تفاصيل العطر</h3><button class="icon-btn" data-close="product">✕</button></div>
       <div class="product-modal-grid" id="productModalContent"></div>
     </div>
   </div>
 
   <div class="modal" id="checkoutModal">
     <div class="overlay" data-close="checkout"></div>
-    <div class="checkout-card">
-      <div class="modal-header">
-        <h3>إتمام الطلب</h3>
-        <button class="icon-btn" data-close="checkout">✕</button>
-      </div>
+    <div class="checkout-card" style="padding:18px">
+      <div class="modal-header"><h3>إتمام الطلب</h3><button class="icon-btn" data-close="checkout">✕</button></div>
       <div class="form-grid">
-        <div class="form-group">
-          <label>اسم الزبون</label>
-          <input id="customerName" placeholder="مثال: حسين علي" />
-        </div>
-        <div class="form-group">
-          <label>رقم الهاتف</label>
-          <input id="customerPhone" placeholder="07xxxxxxxxx" />
-        </div>
-        <div class="form-group full">
-          <label>العنوان (اختياري)</label>
-          <textarea id="customerAddress" placeholder="المدينة / المنطقة / أقرب نقطة دالة"></textarea>
-        </div>
+        <div class="form-group"><label>اسم الزبون</label><input id="customerName" placeholder="مثال: حسين علي" /></div>
+        <div class="form-group"><label>رقم الهاتف</label><input id="customerPhone" placeholder="07xxxxxxxxx" /></div>
+        <div class="form-group full"><label>العنوان (اختياري)</label><textarea id="customerAddress" placeholder="المدينة / المنطقة / أقرب نقطة دالة"></textarea></div>
       </div>
-      <div class="invoice-box">
-        <h4>الفاتورة</h4>
-        <div id="invoiceLines" class="invoice-lines"></div>
-      </div>
-      <div class="stack" style="margin-top:16px">
-        <button class="ghost-btn" data-close="checkout">إغلاق</button>
-        <button class="primary-btn" id="sendWhatsappBtn">إرسال الطلب إلى واتساب</button>
-      </div>
+      <div class="invoice-box"><h4>الفاتورة</h4><div id="invoiceLines" class="invoice-lines"></div></div>
+      <div class="stack" style="margin-top:16px"><button class="ghost-btn" data-close="checkout">إغلاق</button><button class="primary-btn" id="sendWhatsappBtn">إرسال الطلب إلى واتساب</button></div>
     </div>
   </div>
 
   <div class="settings-panel" id="settingsPanel">
     <div class="overlay" data-close="settings"></div>
     <aside class="settings-side">
-      <div class="panel-head">
-        <h3>لوحة الإعدادات</h3>
-        <button class="icon-btn" data-close="settings">✕</button>
-      </div>
+      <div class="panel-head"><h3>لوحة الإعدادات</h3><button class="icon-btn" data-close="settings">✕</button></div>
       <div class="panel-body">
         <div class="settings-tabs" id="settingsTabs">
           <button class="tab-btn active" data-tab="general">عام</button>
           <button class="tab-btn" data-tab="products">المنتجات</button>
           <button class="tab-btn" data-tab="categories">الأقسام</button>
+          <button class="tab-btn" data-tab="layout">تخطيط الموقع</button>
           <button class="tab-btn" data-tab="firebase">Firebase</button>
         </div>
 
         <section class="settings-section active" data-section="general">
           <div class="list-card">
             <div class="form-grid">
-              <div class="form-group">
-                <label>اسم المتجر</label>
-                <input id="settingStoreName" />
-              </div>
-              <div class="form-group">
-                <label>النص التسويقي القصير</label>
-                <input id="settingTagline" />
-              </div>
-              <div class="form-group full">
-                <label>نص البانر الرئيسي</label>
-                <textarea id="settingHeroText"></textarea>
-              </div>
-              <div class="form-group">
-                <label>عنوان البانر</label>
-                <input id="settingHeroTitle" />
-              </div>
-              <div class="form-group">
-                <label>رابط صورة البانر</label>
-                <input id="settingHeroImage" placeholder="https://..." />
-              </div>
-              <div class="form-group">
-                <label>رقم الواتساب</label>
-                <input id="settingWhatsapp" placeholder="9647xxxxxxxx" />
-              </div>
+              <div class="form-group"><label>اسم المتجر</label><input id="settingStoreName" /></div>
+              <div class="form-group"><label>النص التسويقي القصير</label><input id="settingTagline" /></div>
+              <div class="form-group full"><label>نص البانر الرئيسي</label><textarea id="settingHeroText"></textarea></div>
+              <div class="form-group"><label>عنوان البانر</label><input id="settingHeroTitle" /></div>
+              <div class="form-group"><label>رابط صورة البانر</label><input id="settingHeroImage" placeholder="https://..." /></div>
+              <div class="form-group"><label>رقم الواتساب</label><input id="settingWhatsapp" placeholder="9647xxxxxxxx" /></div>
             </div>
-            <div class="stack" style="margin-top:14px">
-              <button class="primary-btn" id="saveGeneralSettingsBtn">حفظ الإعدادات العامة</button>
+            <div class="stack" style="margin-top:14px"><button class="primary-btn" id="saveGeneralSettingsBtn">حفظ الإعدادات العامة</button></div>
+          </div>
+
+          <div class="list-card" style="margin-top:14px">
+            <div class="modal-header"><h3>حماية الإعدادات</h3></div>
+            <div class="form-grid">
+              <div class="form-group"><label>كلمة السر الحالية</label><input id="currentSettingsPassword" type="password" placeholder="أدخل كلمة السر الحالية" /></div>
+              <div class="form-group"><label>كلمة السر الجديدة</label><input id="newSettingsPassword" type="password" placeholder="أدخل كلمة سر جديدة" /></div>
+              <div class="form-group full"><label>تأكيد كلمة السر الجديدة</label><input id="confirmSettingsPassword" type="password" placeholder="أعد إدخال كلمة السر الجديدة" /></div>
             </div>
+            <div class="stack" style="margin-top:14px"><button class="primary-btn" id="changeSettingsPasswordBtn">تغيير كلمة السر</button></div>
+            <p class="muted" style="margin:12px 0 0;line-height:1.9">يتم حفظ كلمة السر بشكل مشفّر داخل المتصفح، ويمكن تغييرها من هذه الصفحة بعد إدخال الكلمة الحالية.</p>
           </div>
         </section>
 
         <section class="settings-section" data-section="products">
           <div class="list-card" style="margin-bottom:14px">
-            <div class="modal-header">
-              <h3 id="productFormTitle">إضافة منتج جديد</h3>
-              <button class="ghost-btn" id="resetProductFormBtn">تفريغ الحقول</button>
-            </div>
+            <div class="modal-header"><h3 id="productFormTitle">إضافة منتج جديد</h3><button class="ghost-btn" id="resetProductFormBtn">تفريغ الحقول</button></div>
             <div class="form-grid">
-              <div class="form-group">
-                <label>اسم العطر</label>
-                <input id="productName" />
-              </div>
-              <div class="form-group">
-                <label>السعر</label>
-                <input id="productPrice" type="number" min="0" />
-              </div>
-              <div class="form-group">
-                <label>القسم</label>
-                <select id="productCategory"></select>
-              </div>
+              <div class="form-group"><label>اسم العطر</label><input id="productName" /></div>
+              <div class="form-group"><label>السعر</label><input id="productPrice" type="number" min="0" /></div>
+              <div class="form-group"><label>القسم</label><select id="productCategory"></select></div>
               <div class="form-group">
                 <label>رابط الصورة</label>
                 <input id="productImage" placeholder="https://..." />
               </div>
+              <div class="form-group">
+                <label>رفع صورة من الجهاز</label>
+                <input id="productImageFile" type="file" accept="image/*" />
+              </div>
               <div class="form-group full">
-                <label>الوصف المختصر</label>
-                <textarea id="productDescription"></textarea>
+                <label>معاينة الصورة</label>
+                <div class="list-card" style="padding:10px">
+                  <img id="productImagePreview" src="" alt="معاينة الصورة" style="width:100%;max-width:220px;aspect-ratio:4/4.7;object-fit:cover;border-radius:18px;background:#f3ede4;display:none" />
+                  <div id="productImagePreviewEmpty" class="muted">لم يتم اختيار صورة بعد</div>
+                </div>
               </div>
-              <div class="form-group">
-                <label>Top Notes</label>
-                <input id="productTopNotes" placeholder="حمضيات، ليمون، برغموت" />
-              </div>
-              <div class="form-group">
-                <label>Heart Notes</label>
-                <input id="productHeartNotes" placeholder="جاردينيا، زهور بيضاء" />
-              </div>
-              <div class="form-group">
-                <label>Base Notes</label>
-                <input id="productBaseNotes" placeholder="مسك، عنبر، فانيلا" />
-              </div>
-              <div class="form-group">
-                <label>شارة المنتج</label>
-                <input id="productBadge" placeholder="مميز / جديد / حصري" />
-              </div>
-              <div class="form-group">
-                <label>الأكثر مبيعًا</label>
-                <select id="productBestSeller">
-                  <option value="false">لا</option>
-                  <option value="true">نعم</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>منتج مميز</label>
-                <select id="productFeatured">
-                  <option value="false">لا</option>
-                  <option value="true">نعم</option>
-                </select>
-              </div>
+              <div class="form-group full"><label>الوصف المختصر</label><textarea id="productDescription"></textarea></div>
+              <div class="form-group"><label>Top Notes</label><input id="productTopNotes" placeholder="حمضيات، ليمون، برغموت" /></div>
+              <div class="form-group"><label>Heart Notes</label><input id="productHeartNotes" placeholder="جاردينيا، زهور بيضاء" /></div>
+              <div class="form-group"><label>Base Notes</label><input id="productBaseNotes" placeholder="مسك، عنبر، فانيلا" /></div>
+              <div class="form-group"><label>شارة المنتج</label><input id="productBadge" placeholder="مميز / جديد / حصري" /></div>
+              <div class="form-group"><label>الأكثر مبيعًا</label><select id="productBestSeller"><option value="false">لا</option><option value="true">نعم</option></select></div>
+              <div class="form-group"><label>منتج مميز</label><select id="productFeatured"><option value="false">لا</option><option value="true">نعم</option></select></div>
             </div>
-            <div class="stack" style="margin-top:14px">
-              <button class="primary-btn" id="saveProductBtn">حفظ المنتج</button>
-            </div>
+            <div class="stack" style="margin-top:14px"><button class="primary-btn" id="saveProductBtn">حفظ المنتج</button><button class="ghost-btn" id="exportProductsHtmlBtn">تصدير HTML بالمنتجات الحالية</button></div>
           </div>
-          <div class="list-card">
-            <div class="modal-header">
-              <h3>المنتجات الحالية</h3>
-            </div>
-            <div id="productsAdminList" class="admin-list"></div>
-          </div>
+          <div class="list-card"><div class="modal-header"><h3>المنتجات الحالية</h3></div><div id="productsAdminList" class="admin-list"></div></div>
         </section>
 
         <section class="settings-section" data-section="categories">
           <div class="list-card" style="margin-bottom:14px">
-            <div class="modal-header">
-              <h3 id="categoryFormTitle">إضافة قسم</h3>
-              <button class="ghost-btn" id="resetCategoryFormBtn">تفريغ الحقول</button>
-            </div>
+            <div class="modal-header"><h3 id="categoryFormTitle">إضافة قسم</h3><button class="ghost-btn" id="resetCategoryFormBtn">تفريغ الحقول</button></div>
             <div class="form-grid">
-              <div class="form-group">
-                <label>اسم القسم</label>
-                <input id="categoryName" />
-              </div>
-              <div class="form-group">
-                <label>ترتيب العرض</label>
-                <input id="categoryOrder" type="number" min="0" value="0" />
-              </div>
+              <div class="form-group"><label>اسم القسم</label><input id="categoryName" /></div>
+              <div class="form-group"><label>ترتيب العرض</label><input id="categoryOrder" type="number" min="0" value="0" /></div>
             </div>
-            <div class="stack" style="margin-top:14px">
-              <button class="primary-btn" id="saveCategoryBtn">حفظ القسم</button>
-            </div>
+            <div class="stack" style="margin-top:14px"><button class="primary-btn" id="saveCategoryBtn">حفظ القسم</button></div>
           </div>
+          <div class="list-card"><div class="modal-header"><h3>الأقسام الحالية</h3></div><div id="categoriesAdminList" class="admin-list"></div></div>
+        </section>
+
+        <section class="settings-section" data-section="layout">
           <div class="list-card">
-            <div class="modal-header">
-              <h3>الأقسام الحالية</h3>
-            </div>
-            <div id="categoriesAdminList" class="admin-list"></div>
+            <div class="modal-header"><h3>تخطيط الموقع</h3></div>
+            <p class="muted" style="margin-top:0;line-height:1.9">يمكنك إظهار أو إخفاء أقسام الصفحة الرئيسية وتغيير ترتيبها. عند التصدير سيتم حفظ هذا التخطيط داخل ملف HTML.</p>
+            <div id="layoutList" class="admin-list"></div>
+            <div class="stack" style="margin-top:14px"><button class="primary-btn" id="saveLayoutBtn">حفظ التخطيط</button></div>
           </div>
         </section>
 
         <section class="settings-section" data-section="firebase">
           <div class="list-card">
-            <p class="muted" style="margin-top:0;line-height:1.9">
-              ضع إعدادات Firebase هنا. عند تفعيل المزامنة، سيتم جلب وحفظ المنتجات والأقسام والإعدادات في قاعدة البيانات.
-            </p>
+            <p class="muted" style="margin-top:0;line-height:1.9">ضع إعدادات Firebase هنا. عند تفعيل المزامنة، سيتم جلب وحفظ المنتجات والأقسام والإعدادات في قاعدة البيانات.</p>
             <div class="form-grid">
               <div class="form-group"><label>apiKey</label><input id="fbApiKey" /></div>
               <div class="form-group"><label>authDomain</label><input id="fbAuthDomain" /></div>
@@ -715,35 +426,37 @@
               <div class="form-group"><label>messagingSenderId</label><input id="fbMessagingSenderId" /></div>
               <div class="form-group"><label>appId</label><input id="fbAppId" /></div>
               <div class="form-group full"><label>databaseURL (اختياري لـ Realtime Database)</label><input id="fbDatabaseURL" /></div>
-              <div class="form-group">
-                <label>نوع قاعدة البيانات</label>
-                <select id="fbType">
-                  <option value="firestore">Firestore</option>
-                  <option value="realtime">Realtime Database</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>تفعيل Firebase</label>
-                <select id="fbEnabled">
-                  <option value="false">معطل</option>
-                  <option value="true">مفعل</option>
-                </select>
-              </div>
+              <div class="form-group"><label>نوع قاعدة البيانات</label><select id="fbType"><option value="firestore">Firestore</option><option value="realtime">Realtime Database</option></select></div>
+              <div class="form-group"><label>تفعيل Firebase</label><select id="fbEnabled"><option value="false">معطل</option><option value="true">مفعل</option></select></div>
             </div>
-            <div class="stack" style="margin-top:14px">
-              <button class="primary-btn" id="saveFirebaseBtn">حفظ إعدادات Firebase</button>
-              <button class="ghost-btn" id="syncNowBtn">مزامنة الآن</button>
-            </div>
+            <div class="stack" style="margin-top:14px"><button class="primary-btn" id="saveFirebaseBtn">حفظ إعدادات Firebase</button><button class="ghost-btn" id="syncNowBtn">مزامنة الآن</button></div>
           </div>
         </section>
       </div>
     </aside>
   </div>
 
+  <div class="modal" id="settingsAuthModal">
+    <div class="overlay" data-close="settings-auth"></div>
+    <div class="auth-modal-card">
+      <div class="auth-lock-icon">🔒</div>
+      <h3 class="auth-title">الإعدادات محمية</h3>
+      <p class="auth-sub">أدخل كلمة السر لفتح لوحة الإعدادات ومتابعة التعديل.</p>
+      <div class="form-group"><label>كلمة السر</label><input id="settingsPasswordInput" type="password" placeholder="أدخل كلمة السر" /></div>
+      <div class="stack" style="margin-top:16px;justify-content:center"><button class="ghost-btn" data-close="settings-auth">إلغاء</button><button class="primary-btn" id="unlockSettingsBtn">فتح الإعدادات</button></div>
+    </div>
+  </div>
+
   <div class="toast-wrap" id="toastWrap"></div>
 
   <script type="module">
-    const STORAGE_KEY = 'luxury_perfume_store_v1';
+    const STORAGE_KEY = 'luxury_perfume_store_v3';
+    const FIXED_PASSWORD_HASH = '4a47fb8fc7dfd4d37b19faed15eb45014b27374e62b5234adb7a507c7a354558';
+
+    function uid(){
+      return Math.random().toString(36).slice(2, 10) + Date.now().toString(36).slice(-4);
+    }
+
     const DEFAULT_DATA = {
       settings: {
         storeName: 'مركز إيليا للعطور',
@@ -751,7 +464,15 @@
         heroTitle: 'عطور تعبّر عنك',
         heroText: 'اكتشف عطورًا مختارة بعناية تمنحك حضورًا راقيًا ونفحات تبقى في الذاكرة.',
         heroImage: 'https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=1400&auto=format&fit=crop',
-        whatsappNumber: '9647745653751'
+        whatsappNumber: '9647745653751',
+        settingsPasswordHash: FIXED_PASSWORD_HASH
+      },
+      layout: {
+        heroSection: { visible: true, order: 1, title: 'البانر الرئيسي' },
+        featuresSection: { visible: true, order: 2, title: 'المميزات' },
+        categoriesSection: { visible: true, order: 3, title: 'الأقسام' },
+        productsSection: { visible: true, order: 4, title: 'المنتجات' },
+        footerSection: { visible: true, order: 5, title: 'الفوتر' }
       },
       categories: [
         { id: uid(), name: 'الكل', order: -1, system: true },
@@ -761,74 +482,12 @@
         { id: uid(), name: 'مميزة', order: 4 }
       ],
       products: [
-        {
-          id: uid(),
-          name: 'عطر إيليا رقم 1',
-          price: 12000,
-          image: 'https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=900&auto=format&fit=crop',
-          description: 'مزيج فاخر من الحمضيات والفواكه ونفحات الجاردينيا يمنح حضورًا مفعمًا بالحيوية وإشراقة دائمة.',
-          categoryId: '',
-          topNotes: 'ليمون، برغموت، يوسفي',
-          heartNotes: 'جاردينيا، زهور بيضاء، فواكه ناعمة',
-          baseNotes: 'مسك، عنبر، أخشاب خفيفة',
-          badge: 'مميز',
-          bestSeller: true,
-          featured: true
-        },
-        {
-          id: uid(),
-          name: 'عطر إيليا رقم 7',
-          price: 12000,
-          image: 'https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?q=80&w=900&auto=format&fit=crop',
-          description: 'تركيبة أنيقة تبدأ بنفحات منعشة وتستقر على قاعدة دافئة تمنحك لمسة راقية طوال اليوم.',
-          categoryId: '',
-          topNotes: 'تفاح، حمضيات، هيل',
-          heartNotes: 'ورد، ياسمين، روائح بودرية',
-          baseNotes: 'فانيلا، عنبر، مسك',
-          badge: 'جديد',
-          bestSeller: false,
-          featured: true
-        },
-        {
-          id: uid(),
-          name: 'عطر إيليا رقم 10',
-          price: 12000,
-          image: 'https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=900&auto=format&fit=crop',
-          description: 'عطر أو دي بارفان للجنسين يجمع بين الحيوية والنعومة في توازن ساحر للاستخدام اليومي والمناسبات.',
-          categoryId: '',
-          topNotes: 'حمضيات، فواكه، نفحات خضراء',
-          heartNotes: 'جاردينيا، زهور ناعمة',
-          baseNotes: 'أخشاب ناعمة، مسك، لمسة عنبر',
-          badge: 'حصري',
-          bestSeller: true,
-          featured: false
-        },
-        {
-          id: uid(),
-          name: 'عطر إيليا بلاك',
-          price: 12000,
-          image: 'https://images.unsplash.com/photo-1615634260167-c8cdede054de?q=80&w=900&auto=format&fit=crop',
-          description: 'عطر غني بطابع فاخر عميق يبرز الأناقة والثبات مع نفحات شرقية وخشبية ملفتة.',
-          categoryId: '',
-          topNotes: 'زعفران، فلفل وردي',
-          heartNotes: 'ورد، بخور، جلد ناعم',
-          baseNotes: 'عود، مسك، باتشولي',
-          badge: 'الأكثر طلبًا',
-          bestSeller: true,
-          featured: true
-        }
+        { id: uid(), name: 'عطر إيليا رقم 1', price: 12000, image: 'https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=900&auto=format&fit=crop', description: 'مزيج فاخر من الحمضيات والفواكه ونفحات الجاردينيا يمنح حضورًا مفعمًا بالحيوية وإشراقة دائمة.', categoryId: '', topNotes: 'ليمون، برغموت، يوسفي', heartNotes: 'جاردينيا، زهور بيضاء، فواكه ناعمة', baseNotes: 'مسك، عنبر، أخشاب خفيفة', badge: 'مميز', bestSeller: true, featured: true },
+        { id: uid(), name: 'عطر إيليا رقم 7', price: 12000, image: 'https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?q=80&w=900&auto=format&fit=crop', description: 'تركيبة أنيقة تبدأ بنفحات منعشة وتستقر على قاعدة دافئة تمنحك لمسة راقية طوال اليوم.', categoryId: '', topNotes: 'تفاح، حمضيات، هيل', heartNotes: 'ورد، ياسمين، روائح بودرية', baseNotes: 'فانيلا، عنبر، مسك', badge: 'جديد', bestSeller: false, featured: true },
+        { id: uid(), name: 'عطر إيليا رقم 10', price: 12000, image: 'https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=900&auto=format&fit=crop', description: 'عطر أو دي بارفان للجنسين يجمع بين الحيوية والنعومة في توازن ساحر للاستخدام اليومي والمناسبات.', categoryId: '', topNotes: 'حمضيات، فواكه، نفحات خضراء', heartNotes: 'جاردينيا، زهور ناعمة', baseNotes: 'أخشاب ناعمة، مسك، لمسة عنبر', badge: 'حصري', bestSeller: true, featured: false },
+        { id: uid(), name: 'عطر إيليا بلاك', price: 12000, image: 'https://images.unsplash.com/photo-1615634260167-c8cdede054de?q=80&w=900&auto=format&fit=crop', description: 'عطر غني بطابع فاخر عميق يبرز الأناقة والثبات مع نفحات شرقية وخشبية ملفتة.', categoryId: '', topNotes: 'زعفران، فلفل وردي', heartNotes: 'ورد، بخور، جلد ناعم', baseNotes: 'عود، مسك، باتشولي', badge: 'الأكثر طلبًا', bestSeller: true, featured: true }
       ],
-      firebase: {
-        enabled: false,
-        type: 'firestore',
-        apiKey: '',
-        authDomain: '',
-        projectId: '',
-        storageBucket: '',
-        messagingSenderId: '',
-        appId: '',
-        databaseURL: ''
-      }
+      firebase: { enabled: false, type: 'firestore', apiKey: '', authDomain: '', projectId: '', storageBucket: '', messagingSenderId: '', appId: '', databaseURL: '' }
     };
 
     const state = {
@@ -842,15 +501,14 @@
       firebaseReady: false,
       firebaseApp: null,
       firestoreDb: null,
-      realtimeDb: null
+      realtimeDb: null,
+      fs: null,
+      rt: null
     };
 
     normalizeSeeds();
+    ensureFixedSettingsPassword();
     init();
-
-    function uid(){
-      return Math.random().toString(36).slice(2, 10) + Date.now().toString(36).slice(-4);
-    }
 
     function loadData(){
       try{
@@ -858,10 +516,11 @@
         if(!raw) return structuredClone(DEFAULT_DATA);
         const parsed = JSON.parse(raw);
         return {
-          settings: {...DEFAULT_DATA.settings, ...(parsed.settings || {})},
+          settings: { ...DEFAULT_DATA.settings, ...(parsed.settings || {}) },
+          layout: { ...DEFAULT_DATA.layout, ...(parsed.layout || {}) },
           categories: Array.isArray(parsed.categories) ? parsed.categories : structuredClone(DEFAULT_DATA.categories),
           products: Array.isArray(parsed.products) ? parsed.products : structuredClone(DEFAULT_DATA.products),
-          firebase: {...DEFAULT_DATA.firebase, ...(parsed.firebase || {})}
+          firebase: { ...DEFAULT_DATA.firebase, ...(parsed.firebase || {}) }
         };
       }catch{
         return structuredClone(DEFAULT_DATA);
@@ -874,10 +533,12 @@
 
     function normalizeSeeds(){
       const defaultCat = state.data.categories.find(c => !c.system && c.name === 'للجنسين') || state.data.categories.find(c => !c.system);
-      state.data.products = state.data.products.map(p => ({
-        ...p,
-        categoryId: p.categoryId || defaultCat?.id || ''
-      }));
+      state.data.products = state.data.products.map(p => ({ ...p, categoryId: p.categoryId || defaultCat?.id || '' }));
+      saveData();
+    }
+
+    function ensureFixedSettingsPassword(){
+      state.data.settings.settingsPasswordHash = FIXED_PASSWORD_HASH;
       saveData();
     }
 
@@ -885,6 +546,8 @@
       bindStaticEvents();
       fillSettingsForms();
       applyStoreBranding();
+      applyLayout();
+      renderLayoutManager();
       renderCategories();
       renderProducts();
       renderCart();
@@ -892,52 +555,46 @@
       renderAdminProducts();
       renderAdminCategories();
       populateCategorySelect();
-      if(state.data.firebase.enabled){
-        initFirebase().then(() => syncFromCloud()).catch(err => {
-          console.error(err);
-          toast('تعذر تشغيل Firebase، سيتم الاعتماد على التخزين المحلي حاليًا.');
-        });
-      }
+      runSelfTests();
     }
 
     function bindStaticEvents(){
       const $ = s => document.querySelector(s);
       const $$ = s => [...document.querySelectorAll(s)];
 
-      $('#searchInput').addEventListener('input', e => {
-        state.search = e.target.value.trim();
-        renderProducts();
-      });
+      $('#searchInput').addEventListener('input', e => { state.search = e.target.value.trim(); renderProducts(); });
       $('#openCartBtn').addEventListener('click', () => togglePanel('cart', true));
-      $('#openSettingsBtn').addEventListener('click', () => togglePanel('settings', true));
+      $('#openSettingsBtn').addEventListener('click', handleOpenSettings);
       $('#clearCartBtn').addEventListener('click', clearCart);
       $('#checkoutBtn').addEventListener('click', openCheckout);
       $('#sendWhatsappBtn').addEventListener('click', sendOrderToWhatsapp);
       $('#saveGeneralSettingsBtn').addEventListener('click', saveGeneralSettings);
       $('#saveProductBtn').addEventListener('click', saveProductFromForm);
+      $('#exportProductsHtmlBtn').addEventListener('click', exportConfiguredHtml);
       $('#resetProductFormBtn').addEventListener('click', resetProductForm);
+      $('#productImageFile').addEventListener('change', handleProductImageFileChange);
+      $('#productImage').addEventListener('input', handleProductImageUrlPreview);
       $('#saveCategoryBtn').addEventListener('click', saveCategoryFromForm);
       $('#resetCategoryFormBtn').addEventListener('click', resetCategoryForm);
       $('#saveFirebaseBtn').addEventListener('click', saveFirebaseSettings);
-      $('#syncNowBtn').addEventListener('click', async () => {
-        await initFirebase();
-        await pushAllToCloud();
-        await syncFromCloud();
-      });
-      $('#shopNowBtn').addEventListener('click', () => window.scrollTo({ top: document.querySelector('.chips').getBoundingClientRect().top + window.scrollY - 110, behavior: 'smooth' }));
+      $('#saveLayoutBtn').addEventListener('click', saveLayoutSettings);
+      $('#changeSettingsPasswordBtn').addEventListener('click', changeSettingsPassword);
+      $('#unlockSettingsBtn').addEventListener('click', unlockSettings);
+      $('#settingsPasswordInput').addEventListener('keydown', e => { if(e.key === 'Enter') unlockSettings(); });
       $('#featuredBtn').addEventListener('click', () => { state.filterMode = 'featured'; renderProducts(); });
       $('#showBestSellerBtn').addEventListener('click', () => { state.filterMode = 'best'; renderProducts(); });
       $('#showFeaturedBtn').addEventListener('click', () => { state.filterMode = 'featured'; renderProducts(); });
-
-      ['#customerName','#customerPhone','#customerAddress'].forEach(sel => {
-        $(sel).addEventListener('input', renderInvoicePreview);
+      $('#shopNowBtn').addEventListener('click', () => {
+        const chips = document.querySelector('.chips');
+        if(chips) window.scrollTo({ top: chips.getBoundingClientRect().top + window.scrollY - 110, behavior: 'smooth' });
       });
 
-      $$('[data-close]').forEach(el => el.addEventListener('click', e => {
-        const type = e.currentTarget.dataset.close;
-        togglePanel(type, false);
-      }));
+      ['#customerName','#customerPhone','#customerAddress'].forEach(sel => {
+        const el = $(sel);
+        if(el) el.addEventListener('input', renderInvoicePreview);
+      });
 
+      $$('[data-close]').forEach(el => el.addEventListener('click', e => togglePanel(e.currentTarget.dataset.close, false)));
       $('#settingsTabs').addEventListener('click', e => {
         const btn = e.target.closest('[data-tab]');
         if(!btn) return;
@@ -951,11 +608,13 @@
         cart: document.getElementById('cartDrawer'),
         product: document.getElementById('productModal'),
         checkout: document.getElementById('checkoutModal'),
-        settings: document.getElementById('settingsPanel')
+        settings: document.getElementById('settingsPanel'),
+        'settings-auth': document.getElementById('settingsAuthModal')
       };
       const el = map[type];
       if(!el) return;
       el.classList.toggle('show', show);
+      if(type === 'settings-auth' && !show) val('settingsPasswordInput', '');
       document.body.style.overflow = document.querySelector('.drawer.show, .modal.show, .settings-panel.show') ? 'hidden' : '';
       if(type === 'checkout' && show) renderInvoicePreview();
     }
@@ -970,25 +629,85 @@
       document.getElementById('heroCard').style.setProperty('--hero-image', `url('${s.heroImage || DEFAULT_DATA.settings.heroImage}')`);
     }
 
+    function applyLayout(){
+      Object.entries(state.data.layout).forEach(([id, conf]) => {
+        const el = document.getElementById(id);
+        if(!el) return;
+        el.style.display = conf.visible ? '' : 'none';
+        el.style.order = String(Number(conf.order || 0));
+      });
+    }
+
+    function renderLayoutManager(){
+      const list = document.getElementById('layoutList');
+      list.innerHTML = '';
+      Object.entries(state.data.layout)
+        .sort((a,b) => (a[1].order || 0) - (b[1].order || 0))
+        .forEach(([id, conf]) => {
+          const row = document.createElement('div');
+          row.className = 'admin-item';
+          row.innerHTML = `
+            <div>
+              <strong>${escapeHtml(conf.title)}</strong>
+              <div class="muted">${escapeHtml(id)}</div>
+            </div>
+            <div class="stack" style="align-items:center">
+              <input type="number" min="1" value="${Number(conf.order || 0)}" data-layout-order="${id}" style="width:92px;padding:10px 12px;border-radius:12px" />
+              <select data-layout-visible="${id}" style="width:96px;padding:10px 12px;border-radius:12px">
+                <option value="true" ${conf.visible ? 'selected' : ''}>إظهار</option>
+                <option value="false" ${!conf.visible ? 'selected' : ''}>إخفاء</option>
+              </select>
+            </div>
+          `;
+          list.appendChild(row);
+        });
+    }
+
+    function saveLayoutSettings(){
+      document.querySelectorAll('[data-layout-order]').forEach(input => {
+        const id = input.dataset.layoutOrder;
+        if(state.data.layout[id]) state.data.layout[id].order = Number(input.value || 0);
+      });
+      document.querySelectorAll('[data-layout-visible]').forEach(select => {
+        const id = select.dataset.layoutVisible;
+        if(state.data.layout[id]) state.data.layout[id].visible = select.value === 'true';
+      });
+      saveData();
+      applyLayout();
+      renderLayoutManager();
+      toast('تم حفظ تخطيط الموقع');
+    }
+
     function renderCategories(){
       const wrap = document.getElementById('categoriesChips');
-      const cats = getUserCategories();
       wrap.innerHTML = '';
-      const allBtn = chipBtn('all','الكل');
-      wrap.appendChild(allBtn);
-      cats.forEach(cat => wrap.appendChild(chipBtn(cat.id, cat.name)));
-      function chipBtn(id, name){
-        const btn = document.createElement('button');
-        btn.className = 'chip' + (state.activeCategory === id ? ' active' : '');
-        btn.textContent = name;
-        btn.addEventListener('click', () => {
-          state.activeCategory = id;
-          state.filterMode = 'all';
-          renderCategories();
-          renderProducts();
-        });
-        return btn;
+      wrap.appendChild(createChip('all', 'الكل'));
+      getUserCategories().forEach(cat => wrap.appendChild(createChip(cat.id, cat.name)));
+    }
+
+    function createChip(id, name){
+      const btn = document.createElement('button');
+      btn.className = 'chip' + (state.activeCategory === id ? ' active' : '');
+      btn.textContent = name;
+      btn.addEventListener('click', () => {
+        state.activeCategory = id;
+        state.filterMode = 'all';
+        renderCategories();
+        renderProducts();
+      });
+      return btn;
+    }
+
+    function getFilteredProducts(){
+      let items = [...state.data.products];
+      if(state.activeCategory !== 'all') items = items.filter(p => p.categoryId === state.activeCategory);
+      if(state.filterMode === 'best') items = items.filter(p => p.bestSeller);
+      if(state.filterMode === 'featured') items = items.filter(p => p.featured);
+      if(state.search){
+        const q = normalize(state.search);
+        items = items.filter(p => normalize(`${p.name} ${p.description} ${p.topNotes} ${p.heartNotes} ${p.baseNotes}`).includes(q));
       }
+      return items;
     }
 
     function renderProducts(){
@@ -1028,18 +747,6 @@
       });
     }
 
-    function getFilteredProducts(){
-      let items = [...state.data.products];
-      if(state.activeCategory !== 'all') items = items.filter(p => p.categoryId === state.activeCategory);
-      if(state.filterMode === 'best') items = items.filter(p => p.bestSeller);
-      if(state.filterMode === 'featured') items = items.filter(p => p.featured);
-      if(state.search){
-        const q = normalize(state.search);
-        items = items.filter(p => normalize(`${p.name} ${p.description} ${p.topNotes} ${p.heartNotes} ${p.baseNotes}`).includes(q));
-      }
-      return items;
-    }
-
     function openProductModal(productId){
       const product = state.data.products.find(p => p.id === productId);
       if(!product) return;
@@ -1056,19 +763,11 @@
             <div class="note-card"><h4>Heart Notes</h4><p>${escapeHtml(product.heartNotes || '—')}</p></div>
             <div class="note-card"><h4>Base Notes</h4><p>${escapeHtml(product.baseNotes || '—')}</p></div>
           </div>
-          <div class="stack">
-            <button class="primary-btn" id="modalAddCartBtn">إضافة للسلة</button>
-            <button class="ghost-btn" data-close="product">إغلاق</button>
-          </div>
+          <div class="stack"><button class="primary-btn" id="modalAddCartBtn">إضافة للسلة</button><button class="ghost-btn" data-close="product">إغلاق</button></div>
           <div>
             <h4 style="margin:8px 0 12px">عطور مشابهة</h4>
             <div class="similar-grid">
-              ${similar.map(item => `
-                <div class="mini-card" data-similar="${item.id}">
-                  <img src="${escapeAttr(item.image)}" alt="${escapeAttr(item.name)}" />
-                  <h5>${escapeHtml(item.name)}</h5>
-                  <p>${formatIQD(item.price)}</p>
-                </div>`).join('') || '<div class="empty" style="grid-column:1/-1">لا توجد اقتراحات أخرى الآن.</div>'}
+              ${similar.map(item => `<div class="mini-card" data-similar="${item.id}"><img src="${escapeAttr(item.image)}" alt="${escapeAttr(item.name)}" /><h5>${escapeHtml(item.name)}</h5><p>${formatIQD(item.price)}</p></div>`).join('') || '<div class="empty" style="grid-column:1/-1">لا توجد اقتراحات أخرى الآن.</div>'}
             </div>
           </div>
         </div>
@@ -1085,6 +784,13 @@
       state.cart.push({ id: uid(), productId: product.id, qty: 1 });
       renderCart();
       toast(`تمت إضافة ${product.name} إلى السلة`);
+    }
+
+    function getCartTotal(){
+      return state.cart.reduce((sum, line) => {
+        const product = state.data.products.find(p => p.id === line.productId);
+        return sum + ((product?.price || 0) * line.qty);
+      }, 0);
     }
 
     function renderCart(){
@@ -1124,16 +830,9 @@
           wrap.appendChild(row);
         });
       }
-      document.getElementById('cartCount').textContent = String(state.cart.length);
-      document.getElementById('cartTotal').textContent = formatIQD(getCartTotal());
+      text('cartCount', String(state.cart.length));
+      text('cartTotal', formatIQD(getCartTotal()));
       renderInvoicePreview();
-    }
-
-    function getCartTotal(){
-      return state.cart.reduce((sum, line) => {
-        const product = state.data.products.find(p => p.id === line.productId);
-        return sum + ((product?.price || 0) * line.qty);
-      }, 0);
     }
 
     function clearCart(){
@@ -1141,11 +840,6 @@
       state.cart = [];
       renderCart();
       toast('تم تفريغ السلة');
-    }
-
-    function openCheckout(){
-      if(!state.cart.length) return toast('أضف منتجًا واحدًا على الأقل قبل إتمام الطلب');
-      togglePanel('checkout', true);
     }
 
     function renderInvoicePreview(){
@@ -1162,15 +856,16 @@
         div.innerHTML = `<span>${idx+1}. ${escapeHtml(product?.name || '')} × ${line.qty}</span><strong>${formatIQD((product?.price || 0) * line.qty)}</strong>`;
         box.appendChild(div);
       });
-      const hr = document.createElement('hr');
-      hr.style.border = 'none';
-      hr.style.borderTop = '1px solid var(--line)';
-      hr.style.margin = '10px 0';
-      box.appendChild(hr);
       const total = document.createElement('div');
       total.className = 'invoice-line';
+      total.style.marginTop = '10px';
       total.innerHTML = `<span>الإجمالي</span><strong>${formatIQD(getCartTotal())}</strong>`;
       box.appendChild(total);
+    }
+
+    function openCheckout(){
+      if(!state.cart.length) return toast('أضف منتجًا واحدًا على الأقل قبل إتمام الطلب');
+      togglePanel('checkout', true);
     }
 
     function sendOrderToWhatsapp(){
@@ -1182,29 +877,25 @@
       if(!/^0?7\d{9}$/.test(phone)) return toast('يرجى إدخال رقم هاتف عراقي صحيح');
       const wa = normalizeWhatsappNumber(state.data.settings.whatsappNumber);
       if(!wa) return toast('رقم الواتساب غير مضبوط من الإعدادات');
-
       const lines = state.cart.map((line, idx) => {
         const product = state.data.products.find(p => p.id === line.productId);
-        return `${idx+1}- ${product?.name || ''}\n   الكمية: ${line.qty}\n   السعر: ${formatIQD(product?.price || 0)}\n   المجموع: ${formatIQD((product?.price || 0) * line.qty)}`;
+        return `${idx + 1}- ${product?.name || ''}\n   الكمية: ${line.qty}\n   السعر: ${formatIQD(product?.price || 0)}\n   المجموع: ${formatIQD((product?.price || 0) * line.qty)}`;
       }).join('\n\n');
-
       const message = [
         `طلب جديد من ${state.data.settings.storeName}`,
-        ``,
+        '',
         `اسم الزبون: ${name}`,
         `رقم الهاتف: ${phone}`,
         `العنوان: ${address || 'غير مذكور'}`,
-        ``,
-        `المنتجات:`,
+        '',
+        'المنتجات:',
         lines,
-        ``,
+        '',
         `الإجمالي الكلي: ${formatIQD(getCartTotal())}`,
-        ``,
-        `شكرًا لثقتكم بنا ✨`
+        '',
+        'شكرًا لثقتكم بنا ✨'
       ].join('\n');
-
-      const url = `https://wa.me/${wa}?text=${encodeURIComponent(message)}`;
-      window.open(url, '_blank');
+      window.open(`https://wa.me/${wa}?text=${encodeURIComponent(message)}`, '_blank');
       toast('تم تجهيز رسالة الطلب لواتساب');
     }
 
@@ -1216,7 +907,10 @@
       val('settingHeroTitle', s.heroTitle);
       val('settingHeroImage', s.heroImage);
       val('settingWhatsapp', s.whatsappNumber);
-
+      val('currentSettingsPassword', '');
+      val('newSettingsPassword', '');
+      val('confirmSettingsPassword', '');
+      val('settingsPasswordInput', '');
       const fb = state.data.firebase;
       val('fbApiKey', fb.apiKey);
       val('fbAuthDomain', fb.authDomain);
@@ -1241,8 +935,45 @@
       };
       saveData();
       applyStoreBranding();
-      syncIfPossible();
       toast('تم حفظ الإعدادات العامة');
+    }
+
+    function hasSettingsPassword(){
+      return !!state.data.settings.settingsPasswordHash;
+    }
+
+    function handleOpenSettings(){
+      if(!hasSettingsPassword()){
+        togglePanel('settings', true);
+        return;
+      }
+      togglePanel('settings-auth', true);
+    }
+
+    async function unlockSettings(){
+      const password = document.getElementById('settingsPasswordInput').value.trim();
+      if(!password) return toast('أدخل كلمة السر أولًا');
+      const hash = await hashPassword(password);
+      if(hash !== state.data.settings.settingsPasswordHash) return toast('كلمة السر غير صحيحة');
+      togglePanel('settings-auth', false);
+      togglePanel('settings', true);
+      toast('تم فتح الإعدادات بنجاح');
+    }
+
+    async function changeSettingsPassword(){
+      const currentPassword = document.getElementById('currentSettingsPassword').value.trim();
+      const newPassword = document.getElementById('newSettingsPassword').value.trim();
+      const confirmPassword = document.getElementById('confirmSettingsPassword').value.trim();
+      const currentHash = await hashPassword(currentPassword);
+      if(currentHash !== state.data.settings.settingsPasswordHash) return toast('كلمة السر الحالية غير صحيحة');
+      if(newPassword.length < 4) return toast('كلمة السر الجديدة يجب أن تكون 4 أحرف أو أكثر');
+      if(newPassword !== confirmPassword) return toast('تأكيد كلمة السر غير مطابق');
+      state.data.settings.settingsPasswordHash = await hashPassword(newPassword);
+      saveData();
+      val('currentSettingsPassword', '');
+      val('newSettingsPassword', '');
+      val('confirmSettingsPassword', '');
+      toast('تم تغيير كلمة السر بنجاح');
     }
 
     function populateCategorySelect(){
@@ -1251,10 +982,11 @@
     }
 
     function getUserCategories(){
-      return [...state.data.categories].filter(c => !c.system).sort((a,b) => (a.order||0) - (b.order||0));
+      return [...state.data.categories].filter(c => !c.system).sort((a,b) => (a.order || 0) - (b.order || 0));
     }
 
     function saveProductFromForm(){
+      const previewSrc = document.getElementById('productImagePreview').dataset.src || '';
       const data = {
         name: document.getElementById('productName').value.trim(),
         price: Number(document.getElementById('productPrice').value || 0),
@@ -1271,8 +1003,8 @@
       if(!data.name) return toast('يرجى إدخال اسم المنتج');
       if(!data.price) return toast('يرجى إدخال سعر صحيح');
       if(!data.categoryId) return toast('يرجى اختيار القسم');
+      if(previewSrc) data.image = previewSrc;
       if(!data.image) data.image = DEFAULT_DATA.settings.heroImage;
-
       if(state.editingProductId){
         const idx = state.data.products.findIndex(p => p.id === state.editingProductId);
         if(idx >= 0) state.data.products[idx] = { ...state.data.products[idx], ...data };
@@ -1285,7 +1017,6 @@
       renderProducts();
       renderAdminProducts();
       resetProductForm();
-      syncIfPossible();
     }
 
     function renderAdminProducts(){
@@ -1299,14 +1030,8 @@
         const row = document.createElement('div');
         row.className = 'admin-item';
         row.innerHTML = `
-          <div>
-            <strong>${escapeHtml(item.name)}</strong>
-            <div class="muted">${formatIQD(item.price)} • ${escapeHtml(getCategoryName(item.categoryId) || 'بدون قسم')}</div>
-          </div>
-          <div class="stack">
-            <button class="ghost-btn" data-act="edit">تعديل</button>
-            <button class="danger-btn" data-act="del">حذف</button>
-          </div>
+          <div><strong>${escapeHtml(item.name)}</strong><div class="muted">${formatIQD(item.price)} • ${escapeHtml(getCategoryName(item.categoryId) || 'بدون قسم')}</div></div>
+          <div class="stack"><button class="ghost-btn" data-act="edit">تعديل</button><button class="danger-btn" data-act="del">حذف</button></div>
         `;
         row.querySelector('[data-act="edit"]').addEventListener('click', () => editProduct(item.id));
         row.querySelector('[data-act="del"]').addEventListener('click', () => deleteProduct(item.id));
@@ -1322,7 +1047,7 @@
       val('productName', item.name);
       val('productPrice', item.price);
       val('productCategory', item.categoryId);
-      val('productImage', item.image);
+      val('productImage', item.image && !item.image.startsWith('data:') ? item.image : '');
       val('productDescription', item.description);
       val('productTopNotes', item.topNotes);
       val('productHeartNotes', item.heartNotes);
@@ -1330,7 +1055,8 @@
       val('productBadge', item.badge || '');
       val('productBestSeller', String(!!item.bestSeller));
       val('productFeatured', String(!!item.featured));
-      togglePanel('settings', true);
+      setProductImagePreview(item.image || '');
+      handleOpenSettings();
       activateSettingsTab('products');
     }
 
@@ -1343,19 +1069,18 @@
       renderProducts();
       renderAdminProducts();
       renderCart();
-      syncIfPossible();
       toast(`تم حذف ${item.name}`);
     }
 
     function resetProductForm(){
       state.editingProductId = null;
       text('productFormTitle', 'إضافة منتج جديد');
-      ['productName','productPrice','productImage','productDescription','productTopNotes','productHeartNotes','productBaseNotes','productBadge'].forEach(id => val(id,''));
-      if(document.getElementById('productCategory').options.length){
-        document.getElementById('productCategory').selectedIndex = 0;
-      }
-      val('productBestSeller','false');
-      val('productFeatured','false');
+      ['productName','productPrice','productImage','productDescription','productTopNotes','productHeartNotes','productBaseNotes','productBadge'].forEach(id => val(id, ''));
+      if(document.getElementById('productCategory').options.length) document.getElementById('productCategory').selectedIndex = 0;
+      val('productBestSeller', 'false');
+      val('productFeatured', 'false');
+      val('productImageFile', '');
+      setProductImagePreview('');
     }
 
     function saveCategoryFromForm(){
@@ -1375,7 +1100,6 @@
       renderAdminCategories();
       populateCategorySelect();
       resetCategoryForm();
-      syncIfPossible();
     }
 
     function renderAdminCategories(){
@@ -1391,14 +1115,8 @@
         const row = document.createElement('div');
         row.className = 'admin-item';
         row.innerHTML = `
-          <div>
-            <strong>${escapeHtml(item.name)}</strong>
-            <div class="muted">الترتيب: ${item.order || 0} • المنتجات: ${count}</div>
-          </div>
-          <div class="stack">
-            <button class="ghost-btn" data-act="edit">تعديل</button>
-            <button class="danger-btn" data-act="del">حذف</button>
-          </div>
+          <div><strong>${escapeHtml(item.name)}</strong><div class="muted">الترتيب: ${item.order || 0} • المنتجات: ${count}</div></div>
+          <div class="stack"><button class="ghost-btn" data-act="edit">تعديل</button><button class="danger-btn" data-act="del">حذف</button></div>
         `;
         row.querySelector('[data-act="edit"]').addEventListener('click', () => editCategory(item.id));
         row.querySelector('[data-act="del"]').addEventListener('click', () => deleteCategory(item.id));
@@ -1413,7 +1131,7 @@
       text('categoryFormTitle', 'تعديل القسم');
       val('categoryName', item.name);
       val('categoryOrder', item.order || 0);
-      togglePanel('settings', true);
+      handleOpenSettings();
       activateSettingsTab('categories');
     }
 
@@ -1428,15 +1146,64 @@
       renderAdminCategories();
       populateCategorySelect();
       renderProducts();
-      syncIfPossible();
       toast(`تم حذف القسم ${item.name}`);
     }
 
     function resetCategoryForm(){
       state.editingCategoryId = null;
       text('categoryFormTitle', 'إضافة قسم');
-      val('categoryName','');
-      val('categoryOrder','0');
+      val('categoryName', '');
+      val('categoryOrder', '0');
+    }
+
+    function handleProductImageUrlPreview(){
+      const url = document.getElementById('productImage').value.trim();
+      if(url) setProductImagePreview(url);
+      else if(!document.getElementById('productImageFile').files.length) setProductImagePreview('');
+    }
+
+    function handleProductImageFileChange(event){
+      const file = event.target.files?.[0];
+      if(!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        const result = typeof reader.result === 'string' ? reader.result : '';
+        setProductImagePreview(result);
+        val('productImage', '');
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function setProductImagePreview(src){
+      const img = document.getElementById('productImagePreview');
+      const empty = document.getElementById('productImagePreviewEmpty');
+      img.dataset.src = src || '';
+      if(src){
+        img.src = src;
+        img.style.display = 'block';
+        empty.style.display = 'none';
+      }else{
+        img.src = '';
+        img.style.display = 'none';
+        empty.style.display = 'block';
+      }
+    }
+
+    function exportConfiguredHtml(){
+      const exportState = structuredClone(state.data);
+      const rawHtml = document.documentElement.outerHTML;
+      const bootstrapScript = `<script>localStorage.setItem(${JSON.stringify(STORAGE_KEY)}, ${JSON.stringify(JSON.stringify(exportState))});<\\/script>`;
+      const finalHtml = `<!DOCTYPE html>\n${rawHtml.replace('<head>', `<head>\n${bootstrapScript}\n`)}`;
+      const blob = new Blob([finalHtml], { type: 'text/html;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'perfume-store-export.html';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+      toast('تم تصدير ملف HTML مع جميع المنتجات الحالية');
     }
 
     function saveFirebaseSettings(){
@@ -1453,103 +1220,6 @@
       };
       saveData();
       toast('تم حفظ إعدادات Firebase');
-      if(state.data.firebase.enabled){
-        initFirebase().then(pushAllToCloud).catch(err => {
-          console.error(err);
-          toast('تعذر الاتصال بـ Firebase. تحقق من الإعدادات والقواعد.');
-        });
-      }
-    }
-
-    async function initFirebase(){
-      if(!state.data.firebase.enabled) return false;
-      if(state.firebaseReady) return true;
-      const cfg = state.data.firebase;
-      if(!cfg.apiKey || !cfg.projectId || !cfg.appId) throw new Error('Firebase config incomplete');
-
-      const appMod = await import('https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js');
-      const firebaseConfig = {
-        apiKey: cfg.apiKey,
-        authDomain: cfg.authDomain,
-        projectId: cfg.projectId,
-        storageBucket: cfg.storageBucket,
-        messagingSenderId: cfg.messagingSenderId,
-        appId: cfg.appId,
-        ...(cfg.databaseURL ? { databaseURL: cfg.databaseURL } : {})
-      };
-      state.firebaseApp = appMod.initializeApp(firebaseConfig);
-
-      if(cfg.type === 'firestore'){
-        const fsMod = await import('https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js');
-        state.firestoreDb = fsMod.getFirestore(state.firebaseApp);
-        state.fs = fsMod;
-      } else {
-        const rtMod = await import('https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js');
-        state.realtimeDb = rtMod.getDatabase(state.firebaseApp);
-        state.rt = rtMod;
-      }
-      state.firebaseReady = true;
-      toast('تم تشغيل Firebase بنجاح');
-      return true;
-    }
-
-    async function pushAllToCloud(){
-      if(!state.data.firebase.enabled) return;
-      await initFirebase();
-      if(state.data.firebase.type === 'firestore'){
-        const { doc, setDoc, serverTimestamp } = state.fs;
-        await setDoc(doc(state.firestoreDb, 'store', 'main'), {
-          ...state.data,
-          updatedAt: serverTimestamp()
-        }, { merge: true });
-      } else {
-        const { ref, set } = state.rt;
-        await set(ref(state.realtimeDb, 'store/main'), {
-          ...state.data,
-          updatedAt: Date.now()
-        });
-      }
-      toast('تم رفع البيانات إلى Firebase');
-    }
-
-    async function syncFromCloud(){
-      if(!state.data.firebase.enabled) return;
-      await initFirebase();
-      let cloud = null;
-      if(state.data.firebase.type === 'firestore'){
-        const { doc, getDoc } = state.fs;
-        const snap = await getDoc(doc(state.firestoreDb, 'store', 'main'));
-        if(snap.exists()) cloud = snap.data();
-      } else {
-        const { ref, get } = state.rt;
-        const snap = await get(ref(state.realtimeDb, 'store/main'));
-        if(snap.exists()) cloud = snap.val();
-      }
-      if(!cloud) return toast('لا توجد بيانات سحابية بعد');
-      state.data = {
-        settings: { ...DEFAULT_DATA.settings, ...(cloud.settings || {}) },
-        categories: Array.isArray(cloud.categories) ? cloud.categories : structuredClone(DEFAULT_DATA.categories),
-        products: Array.isArray(cloud.products) ? cloud.products : structuredClone(DEFAULT_DATA.products),
-        firebase: { ...state.data.firebase }
-      };
-      saveData();
-      fillSettingsForms();
-      applyStoreBranding();
-      renderCategories();
-      renderProducts();
-      renderAdminProducts();
-      renderAdminCategories();
-      populateCategorySelect();
-      toast('تم جلب أحدث البيانات من Firebase');
-    }
-
-    function syncIfPossible(){
-      if(state.data.firebase.enabled){
-        pushAllToCloud().catch(err => {
-          console.error(err);
-          toast('تم الحفظ محليًا، لكن المزامنة السحابية لم تكتمل');
-        });
-      }
     }
 
     function getCategoryName(id){
@@ -1567,7 +1237,13 @@
 
     function normalizeWhatsappNumber(val){
       if(!val) return '';
-      return val.replace(/\D/g,'').replace(/^0/, '964');
+      return val.replace(/\D/g, '').replace(/^0/, '964');
+    }
+
+    async function hashPassword(password){
+      const data = new TextEncoder().encode(password);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+      return [...new Uint8Array(hashBuffer)].map(b => b.toString(16).padStart(2, '0')).join('');
     }
 
     function toast(message){
@@ -1584,15 +1260,31 @@
     }
 
     function normalize(textValue){
-      return String(textValue || '').toLowerCase().replace(/\s+/g,' ').trim();
+      return String(textValue || '').toLowerCase().replace(/\s+/g, ' ').trim();
     }
 
     function escapeHtml(str){
-      return String(str ?? '').replace(/[&<>"']/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));
+      return String(str ?? '').replace(/[&<>"']/g, s => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[s]));
     }
+
     function escapeAttr(str){ return escapeHtml(str); }
-    function text(id, value){ document.getElementById(id).textContent = value; }
-    function val(id, value){ document.getElementById(id).value = value; }
+    function text(id, value){ const el = document.getElementById(id); if(el) el.textContent = value; }
+    function val(id, value){ const el = document.getElementById(id); if(el) el.value = value; }
+
+    function runSelfTests(){
+      console.assert(typeof handleOpenSettings === 'function', 'handleOpenSettings should exist');
+      console.assert(typeof unlockSettings === 'function', 'unlockSettings should exist');
+      console.assert(typeof changeSettingsPassword === 'function', 'changeSettingsPassword should exist');
+      console.assert(typeof exportConfiguredHtml === 'function', 'exportConfiguredHtml should exist');
+      console.assert(typeof saveLayoutSettings === 'function', 'saveLayoutSettings should exist');
+      console.assert(normalizeWhatsappNumber('07745653751') === '9647745653751', 'WhatsApp normalization failed');
+      console.assert(formatIQD(12000) === '12,000 د.ع', 'Currency formatting failed');
+      console.assert(Array.isArray(getUserCategories()), 'Categories should be an array');
+      console.assert(state.data.settings.settingsPasswordHash === FIXED_PASSWORD_HASH, 'Default password hash should be fixed');
+      console.assert(document.getElementById('layoutList') instanceof HTMLElement, 'layoutList should exist');
+      console.assert(typeof handleProductImageFileChange === 'function', 'handleProductImageFileChange should exist');
+      console.assert(typeof setProductImagePreview === 'function', 'setProductImagePreview should exist');
+    }
   </script>
 </body>
 </html>
